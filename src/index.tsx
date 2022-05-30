@@ -18,6 +18,10 @@ document.getElementById("game-wrapper")?.prepend(menuElement)
 const interval = setInterval(() => {
     try {
         if (getPlayer()) {
+            const newToMenu = localStorage.getItem("ProdigyX.isNew")
+            if (!newToMenu) {
+                window.open().location.href = "https://discord.gg/YRtwBJrmGa"
+            }
             render(<HackMenu hacks={hackRegistry} />, menuElement)
             clearInterval(interval)
         }
