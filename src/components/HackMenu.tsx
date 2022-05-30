@@ -22,6 +22,9 @@ const HackMenu: FunctionalComponent<HackMenuProps> = ({ hacks = [] }) => {
                 {sortGroups(groupBy(hacks, hack => hack.category)).map(([category, hacks]) => (
                     <Fragment key={category}>
                         <h2 className="text-center text-3xl font-bold my-2 md:text-left ">{category}</h2>
+                        <p className="my-2">
+                            <span>If any bugs occur join our <a href="https://discord.gg/YRtwBJrmGa" className="underline decoration-blue-600">discord.</a></span>
+                        </p>
                         <div className="flex flex-col md:flex-row md:items-center justify-center md:justify-start md:flex-wrap">
                             {hacks.map(hack => (
                                 hack.type === "hack"
