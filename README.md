@@ -10,7 +10,7 @@ PMGH was completely open source. Prodigy X is not.
 The file src/hack.tsx is obfuscated. This prevents prodigy from patching the exploit.
 
 ## How to use Prodigy X
-Under the dist folder there is a `bookmarklet.txt` file.
+Under the dist folder there is a [`bookmarklet.txt`](https://raw.githubusercontent.com/ProdigyAPI/ProdigyX/master/dist/bookmarklet.txt) file.
 Copy the contents of the file to your clipboard.
 Now create a new bookmark in your browser. Paste the contents of the file into the url field. Name it whatever you want.
 
