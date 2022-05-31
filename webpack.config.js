@@ -6,19 +6,6 @@ const TerserPlugin = require("terser-webpack-plugin")
 const outputFolder = path.resolve(__dirname, "dist")
 const outputFile = "bundle.js"
 
-class BookmarkletGenerator {
-    apply (compiler) {
-        compiler.hooks.emit.tapAsync("BookmarkletGenerator", (compilation, callback) => {
-            const bookmarklet = `javascript:(function(){${encodeURIComponent(compilation.assets[outputFile].source())}})()`
-            compilation.assets["bookmarklet.txt"] = {
-                source: () => bookmarklet,
-                size: () => bookmarklet.length
-            }
-            callback()
-        })
-    }
-}
-
 module.exports = {
     mode: "production",
     entry: [
@@ -30,8 +17,7 @@ module.exports = {
         path: outputFolder
     },
     plugins: [
-        new webpack.ProgressPlugin(),
-        new BookmarkletGenerator()
+        new webpack.ProgressPlugin()
     ],
     module: {
         rules: [
