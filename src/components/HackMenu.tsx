@@ -19,9 +19,7 @@ const HackMenu: FunctionalComponent<HackMenuProps> = ({ hacks = [] }) => {
             <MenuToggler toggled={visible} onToggle={() => setVisible(!visible)} />
             <div className={`p-7 absolute w-full left-0 transition-all ease-in-out duration-500 h-[40vh] overflow-y-scroll bg-gray-200 forest:bg-green-700 forest:bg-opacity-80 shiverchill:bg-teal-500 shiverchill:bg-opacity-80 bonfire-spire:bg-rose-600 bonfire-spire:bg-opacity-[.85] bg-opacity-90 ${visible ? "top-0" : "-top-[40vh]"}`}>
                 <h1 className="text-5xl font-bold text-center">Prodigy X Cheat Menu</h1>
-                <p className="my-2">
-                    <span>If any bugs occur join our <a href="https://discord.gg/YRtwBJrmGa" className="underline decoration-blue-600">discord.</a></span>
-                </p>
+                <p className="text-base font-bold text-center mt-3">Join our discord for hack updates &#38; support: <a href="https://discord.gg/YRtwBJrmGa" className="underline decoration-blue-600">discord.gg/YRtwBJrmGa</a></p>
                 {sortGroups(groupBy(hacks, hack => hack.category)).map(([category, hacks]) => (
                     <Fragment key={category}>
                         <h2 className="text-center text-3xl font-bold my-2 md:text-left ">{category}</h2>
