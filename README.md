@@ -15,3 +15,5 @@ Copy the contents of the file to your clipboard.
 Now create a new bookmark in your browser. Paste the contents of the file into the url field. Name it whatever you want.
 
 Now when ever you are on Prodigy, you can press the bookmark to open the menu.
+
+For more help visit the [discord server.](https://discord.gg/YRtwBJrmGa)
