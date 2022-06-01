@@ -13,7 +13,7 @@ name: Build Dependabot Bundler PR
 on:
   push:
     branches:
-      - "dependabot/bundler**"
+      - master
 
 jobs:
   build:
