@@ -1,5 +1,6 @@
+import { h } from "preact"
 import { saveGame } from "../hack"
-import { InputTypes, success, confirm } from "../swal"
+import { InputTypes, success, confirm, error, customMessage } from "../swal"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
 
@@ -42,6 +43,23 @@ withCategory(Category.UTILITY, ({ hack, toggle }) => {
             success("Your account has been reset.")
         } else {
             success("Your account has not been reset.")
+        }
+    })
+    hack("Find the UserId of People on the Screen", "Get's the UserId of every player on the screen currently", async (hack) => {
+        const users = hack?._state?._current?.playerList ?? {}
+        if (Object.keys(users).length === 0) {
+            error("There are no other players on the screen.")
+        } else {
+            customMessage({
+                title: "The user's on the screen are:",
+                html: <div>
+                    <ul className="list-disc list-inside">
+                        {Object.keys(users).map(user => <li key={user}>
+                            User Id: {user} - {users[user].nameText.textSource.source}
+                        </li>)}
+                    </ul>
+                </div>
+            })
         }
     })
 })

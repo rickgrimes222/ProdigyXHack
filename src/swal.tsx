@@ -1,17 +1,14 @@
-import type { JSX } from "preact"
-import swal, { SweetAlertInput, SweetAlertOptions } from "sweetalert2"
-import withReactContent from "sweetalert2-react-content"
-
-const Swal = withReactContent(swal)
+import { isValidElement, render } from "preact"
+import Swal, { SweetAlertInput, SweetAlertOptions } from "sweetalert2"
 
 export class ArgumentFailureError extends Error {
     override name = "ArgumentFailureError"
 }
 
 export interface SwalInput {
-    value: string | JSX.Element
+    value: string
     input?: SweetAlertInput
-    title?: string | JSX.Element
+    title?: string
     placeholder?: string
     validator?: (value: string) => string | null | undefined
     swalOptions?: SweetAlertOptions
@@ -76,3 +73,13 @@ export const confirm = async (value: string) =>
         confirmButtonText: "Confirm",
         cancelButtonText: "Cancel"
     })).isDismissed
+
+export const customMessage = (options: SweetAlertOptions) => {
+    const isJSX = isValidElement(options.html)
+    if (isJSX) {
+        const element = document.createElement("div")
+        render(options.html, element)
+        options.html = element.outerHTML
+    }
+    return Swal.fire(options)
+}
