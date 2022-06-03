@@ -1,5 +1,7 @@
+import { h } from "preact"
+import PlayerName, { NameInfo } from "../components/PlayerName"
 import { getMembership } from "../hack"
-import { InputTypes, success } from "../swal"
+import { ArgumentFailureError, customMessage, InputTypes, success } from "../swal"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
 
@@ -59,5 +61,27 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
         const floor = await InputTypes.integer("Please enter the floor you want to be on.", 1, 100)
         player.data.tower = floor
         success(`You are now on floor ${floor}.`)
+    })
+    hack("Change Name", "Changes the name of your player.", async (hack, player, gameData) => {
+        const names = gameData.name
+        const nicknames = gameData.nickname
+        const objInfo: NameInfo = {
+            first: player.name.data.firstName,
+            middle: player.name.data.middleName,
+            last: player.name.data.lastName,
+            nickname: player.name.data.nickname
+        }
+
+        const name = await customMessage({
+            title: "Set Player Name",
+            html: <PlayerName names={names} nicknames={nicknames} obj={objInfo} />,
+            showCancelButton: true
+        })
+        if (name.dismiss) throw new ArgumentFailureError()
+        player.name.data.firstName = objInfo.first
+        player.name.data.middleName = objInfo.middle
+        player.name.data.lastName = objInfo.last
+        player.name.data.nickname = objInfo.nickname
+        success(`You are now ${player.name.getName()}.`)
     })
 })
