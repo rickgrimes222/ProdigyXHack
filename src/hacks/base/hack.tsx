@@ -21,6 +21,7 @@ const Hack: FunctionalComponent<HackProps> = ({ name, description, hackFunction 
                 throw error
             }
             setTimeout(() => {
+                player.appearanceChanged = true
                 saveGame()
             }, 1000)
         }

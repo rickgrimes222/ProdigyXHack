@@ -26,6 +26,7 @@ const Toggle: FunctionalComponent<ToggleProps> = ({ name, toggleFunction, checke
                 throw error
             }
             setTimeout(() => {
+                player.appearanceChanged = true
                 saveGame()
             }, 1000)
         }

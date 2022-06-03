@@ -1,5 +1,5 @@
 import { h } from "preact"
-import { saveGame } from "../hack"
+import { saveGame, setFromUserID } from "../hack"
 import { InputTypes, success, confirm, error, customMessage } from "../swal"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
@@ -60,6 +60,15 @@ withCategory(Category.UTILITY, ({ hack, toggle }) => {
                     </ul>
                 </div>
             })
+        }
+    })
+    hack("Duplicate an Account", "Copy an account from it's UserId.", async () => {
+        const userId = await InputTypes.string("Please enter the UserId of the account you want to copy. Warning: this will delete your current account.")
+        const account = await setFromUserID(userId)
+        if (account) {
+            success(`Account ${userId} has been copied to your account.`)
+        } else {
+            error(`Account ${userId} could not be copied.`)
         }
     })
 })
