@@ -1,0 +1,7 @@
+.small-button {
+    padding: .3125em 1em !important;
+}
+
+.long-transition {
+    transition-duration: .5s !important;
+}
