@@ -8,5 +8,5 @@ Prodigy X is a cheat menu for the game [Prodigy](https://www.prodigygame.com/mai
 
 To use Prodigy X, go to our [installing page](installing.md).
 
-For more help vists our [discord server](https://discord.gg/YRtwBJrmGa).
+For more help visit our [discord server](https://discord.gg/YRtwBJrmGa).
 </center>
