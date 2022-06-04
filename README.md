@@ -11,7 +11,7 @@ The file src/hack.tsx is obfuscated. This prevents prodigy from patching the exp
 
 ## How to use Prodigy X
 
-Copy the contents of [bookmarklet.txt](https://raw.githubusercontent.com/ProdigyAPI/ProdigyX/master/bookmarklet.txt).
+Copy the contents of `[bookmarklet.txt]`(https://raw.githubusercontent.com/ProdigyAPI/ProdigyX/master/bookmarklet.txt).
 
 Create a new bookmark.
 
