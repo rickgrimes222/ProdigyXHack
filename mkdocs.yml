@@ -4,8 +4,16 @@ theme:
   name: material
   custom_dir: overrides
   palette:
-    scheme: slate
-    primary: cyan
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/toggle-switch 
+        name: Switch to dark mode
+    - scheme: slate
+      primary: cyan
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
   features:
     - toc.follow
     - toc.integrate
