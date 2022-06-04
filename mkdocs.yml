@@ -21,6 +21,9 @@ markdown_extensions:
 extra_css:
   - stylesheets/global.css
 
+extra_javascript:
+  - javascript/copy-button.js
+
 nav:
   - Prodigy X: index.md
   - Installing: installing.md
