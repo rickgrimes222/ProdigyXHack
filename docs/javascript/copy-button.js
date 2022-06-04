@@ -4,7 +4,7 @@ let cheatMenu
     cheatMenu = await (await fetch("https://raw.githubusercontent.com/ProdigyAPI/ProdigyX/master/bookmarklet.txt")).text()
 })()
 
-document.getElementById("copy-button").addEventListener("click", async () => {
+document.getElementById("copy-button").addEventListener("click", () => {
     navigator.clipboard.writeText(cheatMenu).then(() => {
         const oldText = document.getElementById("copy-button").innerText
         document.getElementById("copy-button").innerText = "Copied!"
