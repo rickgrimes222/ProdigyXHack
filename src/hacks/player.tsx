@@ -36,8 +36,13 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
         player.data.bountyScore = value
         success(`You now have ${value} bounty points.`)
     })
-    toggle("Toggle Membership", (hack, player, _gameData, toggled) => {
-        getMembership(toggled)
+    hack("Obtain Conjure Cubes", "Obtain as many conjure cubes as you want.", async () => {
+        const value = await InputTypes.integer("How many conjure cubes do you want to obtain?", 1, 99)
+        for (let i = 0; i < Math.min(99, value); i++) { _.instance.prodigy.giftBoxController.receiveGiftBox(null, _.gameData.giftBox.find((x: any) => x.ID === 1)) }
+        success(`You now have ${value} conjure cubes.`)
+    }, true)
+    toggle("Toggle Membership", (hack, player, gameData, toggled) => {
+        getMembership(toggled) // TODO: If on extension, use _ method.
         success(`You are ${toggled ? "now a member" : "no longer a member"}.`)
     }, (hack, player) => player.hasMembership())
     hack("Set Wins", "Set's the amount of wins you have currently.", async (hack, player) => {
