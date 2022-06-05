@@ -23,7 +23,7 @@ The extension method is the easiest way to install Prodigy X.
 1. Firstly you have to get on the extensions page. You can access this page by going to chrome://extensions/ in chrome.
 2. Now on the extensions page you will have to enable Developer Mode. On the top right corner of the page you will see a switch. Make sure it is enabled.
    ![Example](images/developer%20mode%20chrome.jpg)
-3. Now download the extension. You can do that [here](https://github.com/ProdigyAPI/ProdigyXLoader/raw/master/build.crx).
+3. Now download the extension. You can do that [here](https://github.com/ProdigyAPI/ProdigyXLoader/raw/master/build.zip).
 4. The only thing you have to do now is to install the extension. You can do that by dragging and dropping the extension onto the extensions page.
 
 Now when you log onto Prodigy, Prodigy X will automatically get loaded!
