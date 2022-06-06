@@ -1,5 +1,5 @@
 # Prodigy X
 
-![Logo](https://cdn.discordapp.com/attachments/852986451896959026/980097446589915177/IMG_3310.png)
+![Logo](https://media.discordapp.net/attachments/980982335593930824/983168328300396594/download_54.png)
 
 Our docs are at https://ProdigyAPI.github.io/ProdigyX/.
