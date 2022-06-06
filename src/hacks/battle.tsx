@@ -9,7 +9,7 @@ withCategory(Category.BATTLE, ({ hack, toggle }) => {
         player.getMaxHearts = () => 1e9
         success("You now have unlimited health.")
     })
-    toggle("Instant Kill", (hack, player, _gameData, toggled) => {
+    toggle("Instant Kill", (hack, player, gameData, toggled) => {
         player.modifiers.damage = toggled ? 1e9 : 1
         success(toggled ? "You will now kill everything after one attack." : "You will no longer kill everything after one attack.")
     }, (hack, player) => player.modifiers.damage === 1e9)
@@ -60,7 +60,6 @@ withCategory(Category.BATTLE, ({ hack, toggle }) => {
         state.teams[0].setEnergy(99)
         success("Your battle energy has been filled.")
     })
-
     hack("Heal Team", "Heal's your team", async (hack, player) => {
         const currentState = hack.state.current
         if (["Battle", "SecureBattle"].includes(currentState)) {

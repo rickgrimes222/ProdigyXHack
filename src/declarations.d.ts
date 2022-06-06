@@ -1,9 +1,12 @@
 import { Category } from "./hacks/base/categories"
+import { Game } from "./types/game"
+import { GameData } from "./types/gameData"
+import { Player } from "./types/player"
 
 /* eslint-disable no-unused-vars */
 declare global {
-    type HackFunction = (hack: any, player: any, gameData: any) => Promise<void> | void
-    type ToggleFunction = (hack: any, player: any, gameData: any, toggleState: boolean) => Promise<void> | void
+    type HackFunction = (hack: Game, player: Player, gameData: GameData) => Promise<void> | void
+    type ToggleFunction = (hack: Game, player: Player, gameData: GameData, toggleState: boolean) => Promise<void> | void
     interface HackData {
         name: string
         description?: string

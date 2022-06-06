@@ -17,6 +17,7 @@ theme:
   features:
     - toc.follow
     - toc.integrate
+    - content.code.annotate
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -26,6 +27,9 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.keys
   - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 extra_css:
   - stylesheets/global.css
@@ -37,6 +41,9 @@ nav:
   - Prodigy X: index.md
   - Installing: installing.md
   - Creating Bookmarks: creating-bookmarks.md
+  - Contributing:
+    - Creating Hacks: contributing/creating-hacks.md
+    - Creating Alerts: contributing/alerts.md
 
 repo_url: https://github.com/ProdigyAPI/ProdigyX
 repo_name: ProdigyAPI/ProdigyX

@@ -10,3 +10,7 @@ To use Prodigy X, go to our [installing page](installing.md).
 
 For more help visit our [discord server](https://discord.gg/YRtwBJrmGa).
 </center>
+
+!!! tip "Always use an alt, just to be safe."
+    While our hacks are completely safe, **you should never use hacks on your main account.**
+    There's an **extremely slim** chance that you could get banned for using hacks. If you do get banned, please [report it](https://discord.gg/YRtwBJrmGa).
