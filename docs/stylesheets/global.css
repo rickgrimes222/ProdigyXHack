@@ -5,3 +5,10 @@
 .long-transition {
     transition-duration: .5s !important;
 }
+
+@media (max-width: 767px) {
+    .video-container iframe {
+        height: 44.344vw !important;
+        width: 78.86vw !important;
+    }
+}

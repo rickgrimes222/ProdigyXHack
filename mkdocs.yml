@@ -31,6 +31,12 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
 
+plugins:
+  - mkdocs-video:
+      css_style:
+        width: "39.43vw"
+        height: "22.172vw"
+
 extra_css:
   - stylesheets/global.css
 

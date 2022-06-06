@@ -16,6 +16,10 @@ Now when you go on the Prodigy website you will be able to use Prodigy X. Just c
 
 It is recommended to make the bookmark bar visible.
 
+Here's a video to show you how to do it!
+
+![type:video](https://www.youtube.com/embed/4cFL5V3XNeA)
+
 ## Extension Method (only works on Chrome)
 
 The extension method is the easiest way to install Prodigy X.
