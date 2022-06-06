@@ -12,7 +12,7 @@
         •
         <a href="https://prodigyapi.github.io/ProdigyX/installing/">Installation Guide</a>
         •
-        <a>YouTube (Soon)</a>
+        <a href="https://www.youtube.com/channel/UCioIJQ4niel1ziD7YA5b3cA">YouTube (Soon)</a>
 	</strong>
     <br />
     <br />
