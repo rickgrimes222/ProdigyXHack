@@ -1,8 +1,8 @@
 <h1 align="center">Prodigy X</h1>
 <br />
-<center>
+<p align="center">
     <img alt="Prodigy X Logo" src="https://media.discordapp.net/attachments/980982335593930824/983168328300396594/download_54.png">
-<center>
+</p>
 <br />
 <p align="center">
 	<strong>
