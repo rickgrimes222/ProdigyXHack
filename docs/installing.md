@@ -18,7 +18,7 @@ It is recommended to make the bookmark bar visible.
 
 Here's a video to show you how to do it!
 
-![type:video](https://www.youtube.com/embed/4cFL5V3XNeA)
+![type:video](https://www.youtube.com/embed/z2xQ-aOmrWA)
 
 ## Extension Method (only works on Chrome)
 
@@ -33,4 +33,4 @@ The extension method is the easiest way to install Prodigy X.
 Now when you log onto Prodigy, Prodigy X will automatically get loaded!
 
 Here's a video to show you how to do it!
-![type:video](https://www.youtube.com/embed/qKLHUuFSjZQ)
+![type:video](https://www.youtube.com/embed/zbZc-TPtFJQ)
