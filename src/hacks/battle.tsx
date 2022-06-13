@@ -26,7 +26,7 @@ withCategory(Category.BATTLE, ({ hack, toggle }) => {
             }
             success("You have successfully escaped from the battle.")
         } else if (!["Battle", "SecureBattle"].includes(currentState)) {
-            error("You are not in a battle.")
+            error("You are currently not in a battle.")
         } else {
             Object.fromEntries(hack.state.states)[currentState].runAwayCallback()
             success("You have successfully escaped from the PvE battle.")
@@ -48,7 +48,7 @@ withCategory(Category.BATTLE, ({ hack, toggle }) => {
             success("You have successfully won the battle.")
             break
         default:
-            error("You are not in a battle.")
+            error("You are currently not in a battle.")
         }
     })
     hack("Fill Battle Energy", "Fills up your battle energy.", async (hack) => {
