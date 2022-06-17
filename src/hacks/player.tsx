@@ -90,7 +90,7 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
         success(`You are now ${player.name.getName()}.`)
     })
     hack("Set Grade", "Set's the grade of your account.", async (hack, player) => {
-        const value = await InputTypes.integer("Please enter the grade you want to be.", 1, 100)
+        const value = await InputTypes.integer("Please enter the grade you want to be.", 1, 8)
         player.grade = value
         success(`You are now grade ${value}.`)
     })
