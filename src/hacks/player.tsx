@@ -1,7 +1,7 @@
 import { h } from "preact"
 import PlayerName, { NameInfo } from "../components/PlayerName"
 import { getMembership } from "../hack"
-import { ArgumentFailureError, customMessage, InputTypes, success } from "../swal"
+import { ArgumentFailureError, customMessage, InputTypes, success, error } from "../swal"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
 
@@ -61,6 +61,15 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
         }
         player.achievements.updated = true
         success("You now have every achievements.")
+    })
+    hack("Permanent Morph", "Makes your current morph last forever.", async (hack, player) => {
+        // @ts-ignore TODO: Fix player type.
+        if (!player.isPlayerTransformed()) error("You are not morphed. Use a morph marble and try again.")
+        // @ts-ignore
+        player.data.playerTransformation.maxTime = Infinity;
+        // @ts-ignore
+        player.data.playerTransformation.timeRemaining = Infinity;
+        success("Your morph will now last forever.")
     })
     hack("Set Dark Tower Floor", "Set's the floor you are on in the dark tower.", async (hack, player) => {
         const floor = await InputTypes.integer("Please enter the floor you want to be on.", 1, 100)
