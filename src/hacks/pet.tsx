@@ -15,7 +15,7 @@ function getHpFromPet (level, petGameData) {
 }
 
 withCategory(Category.PET, ({ hack }) => {
-    hack("Get All Pets", "Every pet in the game gets added to your inventory.", async (hack, player, gameData) => {
+    hack("Get All Pets", "Every pet in the game gets added to your kennel.", async (hack, player, gameData) => {
         const level = await InputTypes.integer("Please enter the level you want the pets to be.", 1, 100)
         let xp
         if (level === 1) {
