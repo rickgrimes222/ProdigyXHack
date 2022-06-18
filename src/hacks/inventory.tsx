@@ -1,4 +1,4 @@
-import { confirm, InputTypes, success } from "../swal"
+import { confirm, InputTypes, success, error } from "../swal"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
 
@@ -31,7 +31,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
     hack("Clear Inventory", "Clear's every item from your inventory.", async (hack, player) => {
         const confirmed = await confirm("Are you sure you want to clear your inventory?")
         if (!confirmed) {
-            success("Cancelled.")
+            error("Cancelled by user.")
             return
         }
         Object.keys(player.backpack.data).forEach(i => {

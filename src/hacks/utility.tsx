@@ -42,7 +42,7 @@ withCategory(Category.UTILITY, ({ hack, toggle }) => {
             player.resetAccount()
             success("Your account has been reset.")
         } else {
-            success("Your account has not been reset.")
+            error("Cancelled by user.")
         }
     })
     hack("Find the UserId of People on the Screen", "Get's the UserId of every player on the screen currently", async (hack) => {
