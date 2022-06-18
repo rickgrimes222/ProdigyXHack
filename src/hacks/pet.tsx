@@ -1,4 +1,4 @@
-import { InputTypes, success } from "../swal"
+import { InputTypes, success, confirm, error } from "../swal"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
 
@@ -15,7 +15,7 @@ function getHpFromPet (level, petGameData) {
 }
 
 withCategory(Category.PET, ({ hack }) => {
-    hack("Get All Pets", "Every pet in the game get's added to your inventory.", async (hack, player, gameData) => {
+    hack("Get All Pets", "Every pet in the game gets added to your inventory.", async (hack, player, gameData) => {
         const level = await InputTypes.integer("Please enter the level you want the pets to be.", 1, 100)
         let xp
         if (level === 1) {
@@ -39,6 +39,15 @@ withCategory(Category.PET, ({ hack }) => {
             rescueAttempts: 1
         }))
         success("You now have every pet in the game.")
+    })
+    hack("Clear All Pets", "Deletes all pets from your kennel.", async (hack, player) => {
+        const confirmed = await confirm("Are you sure you want to clear all your pets?")
+        if (!confirmed) {
+            error("Cancelled by user.")
+            return 
+        } 
+        player.kennel.data.length = 0
+        success("All pets have been cleared.")
     })
     hack("Fix Battle Crash", "If starting a battle crashes prodigy use this hack.", (hack, player) => {
         player.kennel.petTeam.forEach((v: any) => {
