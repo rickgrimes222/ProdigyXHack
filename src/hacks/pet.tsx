@@ -15,7 +15,7 @@ function getHpFromPet (level, petGameData) {
 }
 
 withCategory(Category.PET, ({ hack }) => {
-    hack("Get All Pets", "Every pet in the game get's added to your inventory", async (hack, player, gameData) => {
+    hack("Get All Pets", "Every pet in the game get's added to your inventory.", async (hack, player, gameData) => {
         const level = await InputTypes.integer("Please enter the level you want the pets to be.", 1, 100)
         let xp
         if (level === 1) {
@@ -46,7 +46,7 @@ withCategory(Category.PET, ({ hack }) => {
         })
         success("The battle crash should fixed.")
     })
-    hack("Add Pet", "Add a pet to your kennel", async (hack, player, gameData) => {
+    hack("Add Pet", "Add a pet to your kennel.", async (hack, player, gameData) => {
         const petIndex = await InputTypes.select("Which pet do you want to obtain?", gameData.pet.map(x => x.data.name))
         const pet = gameData.pet[petIndex]
         const level = await InputTypes.integer("Please enter the level you want the pet to be.", 1, 100)
@@ -73,5 +73,15 @@ withCategory(Category.PET, ({ hack }) => {
             })
         }
         success(`You now have ${pet.data.name}`)
+    })
+    hack("Delete Pet", "Delete a pet from your kennel.", async (hack, player, gameData) => {
+        const petsArray = []
+        player.kennel.data.forEach(x => {
+            // @ts-ignore
+            petsArray.push(`${x.nickname ?? gameData.pet.find(i => +i.ID === +x.ID)?.data.name ?? "Unknown"} | Level ${x.level}`)
+        })
+        const petIndex = await InputTypes.select("Which pet do you want to delete?", petsArray)
+        player.kennel.data.splice(petIndex, 1)
+        success("Successfully deleted pet.")
     })
 })
