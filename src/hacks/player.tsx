@@ -26,6 +26,14 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
         player.data.level = value
         success(`You are now level ${value}.`)
     })
+    hack("Uncap Level (Client-Side Only)", "Set's the level of your player. Can be above 100.", async (hack, player) => {
+        const value = await InputTypes.integer("Please enter the level you want to be.", 1)
+        // @ts-ignore
+        player.getLevel = () => {
+            return value
+        }
+        success(`You are now level ${value}.`)
+    })
     hack("Set Member Stars", "Set's the amount of member stars you have currently.", async (hack, player) => {
         const value = await InputTypes.integer("Please enter the amount of member stars you want to get.", 1, 9999999)
         player.data.storedMemberStars = value
@@ -97,6 +105,15 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
         player.name.data.lastName = objInfo.last
         player.name.data.nickname = objInfo.nickname
         success(`You are now ${player.name.getName()}.`)
+    })
+    hack("Set Name (Client-Side Only)", "Set's your name to anything you want. (Only shows on your screen)", async (hack, player) => {
+        const name = await InputTypes.string("What do you want your name to be?")
+        // @ts-ignore
+        player.getName = () => {
+            return name
+        }
+        player.appearanceChanged = true
+        success(`Your name is now ${name}`)
     })
     hack("Set Grade", "Set's the grade of your account.", async (hack, player) => {
         const value = await InputTypes.integer("Please enter the grade you want to be.", 1, 8)
