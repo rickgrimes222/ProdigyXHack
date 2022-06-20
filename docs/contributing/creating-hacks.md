@@ -3,7 +3,7 @@
 To create hacks for Prodigy X you have to use the [extension method](../installing.md#extension-method-only-works-on-chrome).
 
 Firstly pick the category you want to create a hack for.
-Currently the categories are:
+Currently, the categories are:
 
 - **Battle**
 - **Inventory**
@@ -11,7 +11,7 @@ Currently the categories are:
 - **Player**
 - **Utility**
 
-Once you picked the category, go into that categories file.
+Once you picked the category, go into that category file.
 
 In the scope of `withCategory` you can use the `hack` and `toggle` functions.
 
@@ -23,9 +23,9 @@ To create a hack you will need a name, a description and a function.
 
 The function accepts 3 parameters:
 
-- **hack**: The game object. On the extension this is equal to `_.game`.
-- **player**: The player object. On the extension this is equal to `_.player`.
-- **gameData**: Data about the game. On the extension this is equal to `_.gameData`.
+- **hack**: The game object. On the extension, this is equal to `_.game`.
+- **player**: The player object. On the extension, this is equal to `_.player`.
+- **gameData**: Data about the game. On the extension, this is equal to `_.gameData`.
 
 !!! example
     The example below shows how the hack `Set Gold` was created.
@@ -66,15 +66,15 @@ To create a toggler you will need a name, a function, and a get default value fu
 
 The function accepts 4 parameters:
 
-- **hack**: The game object. On the extension this is equal to `_.game`.
-- **player**: The player object. On the extension this is equal to `_.player`.
-- **gameData**: Data about the game. On the extension this is equal to `_.gameData`.
+- **hack**: The game object. On the extension, this is equal to `_.game`.
+- **player**: The player object. On the extension, this is equal to `_.player`.
+- **gameData**: Data about the game. On the extension, this is equal to `_.gameData`.
 - **toggleState**: The current state of the toggler.
 
 The get default value function accepts 2 parameters:
 
-- **hack**: The game object. On the extension this is equal to `_.game`.
-- **player**: The player object. On the extension this is equal to `_.player`.
+- **hack**: The game object. On the extension, this is equal to `_.game`.
+- **player**: The player object. On the extension, this is equal to `_.player`.
 
 !!! example
     The example below shows how the toggler `Instant Kill` was created.

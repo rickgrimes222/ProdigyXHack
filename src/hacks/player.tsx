@@ -66,9 +66,9 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
         // @ts-ignore TODO: Fix player type.
         if (!player.isPlayerTransformed()) error("You are not morphed. Use a morph marble and try again.")
         // @ts-ignore
-        player.data.playerTransformation.maxTime = Infinity;
+        player.data.playerTransformation.maxTime = Infinity
         // @ts-ignore
-        player.data.playerTransformation.timeRemaining = Infinity;
+        player.data.playerTransformation.timeRemaining = Infinity
         success("Your morph will now last forever.")
     })
     hack("Set Dark Tower Floor", "Set's the floor you are on in the dark tower.", async (hack, player) => {
