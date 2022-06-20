@@ -29,9 +29,7 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
     hack("Uncap Level (Client-Side Only)", "Set's the level of your player. Can be above 100.", async (hack, player) => {
         const value = await InputTypes.integer("Please enter the level you want to be.", 1)
         // @ts-ignore
-        player.getLevel = () => {
-            return value
-        }
+        player.getLevel = () => value
         success(`You are now level ${value}.`)
     })
     hack("Set Member Stars", "Set's the amount of member stars you have currently.", async (hack, player) => {
@@ -109,9 +107,7 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
     hack("Set Name (Client-Side Only)", "Set's your name to anything you want. (Only shows on your screen)", async (hack, player) => {
         const name = await InputTypes.string("What do you want your name to be?")
         // @ts-ignore
-        player.getName = () => {
-            return name
-        }
+        player.getName = () => name
         player.appearanceChanged = true
         success(`Your name is now ${name}`)
     })
