@@ -44,8 +44,8 @@ withCategory(Category.PET, ({ hack }) => {
         const confirmed = await confirm("Are you sure you want to clear all your pets?")
         if (!confirmed) {
             error("Cancelled by user.")
-            return 
-        } 
+            return
+        }
         player.kennel.data.length = 0
         success("All pets have been cleared.")
     })
@@ -86,7 +86,6 @@ withCategory(Category.PET, ({ hack }) => {
     hack("Delete Pet", "Delete a pet from your kennel.", async (hack, player, gameData) => {
         const petsArray = []
         player.kennel.data.forEach(x => {
-            // @ts-ignore
             petsArray.push(`${x.nickname ?? gameData.pet.find(i => +i.ID === +x.ID)?.data.name ?? "Unknown"} | Level ${x.level}`)
         })
         const petIndex = await InputTypes.select("Which pet do you want to delete?", petsArray)

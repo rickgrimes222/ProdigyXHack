@@ -28,7 +28,6 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
     })
     hack("Uncap Level (Client-Side Only)", "Set's the level of your player. Can be above 100.", async (hack, player) => {
         const value = await InputTypes.integer("Please enter the level you want to be.", 1)
-        // @ts-ignore
         player.getLevel = () => value
         success(`You are now level ${value}.`)
     })
@@ -69,9 +68,8 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
         success("You now have every achievements.")
     })
     hack("Permanent Morph", "Makes your current morph last forever.", async (hack, player) => {
-        // @ts-ignore TODO: Fix player type.
         if (!player.isPlayerTransformed()) error("You are not morphed. Use a morph marble and try again.")
-        // @ts-ignore
+        // @ts-ignore I was not transformed while getting the player type
         player.data.playerTransformation.maxTime = Infinity
         // @ts-ignore
         player.data.playerTransformation.timeRemaining = Infinity
@@ -106,7 +104,6 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
     })
     hack("Set Name (Client-Side Only)", "Set's your name to anything you want. (Only shows on your screen)", async (hack, player) => {
         const name = await InputTypes.string("What do you want your name to be?")
-        // @ts-ignore
         player.getName = () => name
         player.appearanceChanged = true
         success(`Your name is now ${name}`)
