@@ -6,7 +6,7 @@ There are 2 different methods of installing Prodigy X.
 
 The extension method is the easiest way to install Prodigy X.
 
-1. Go to https://chrome.google.com/webstore/detail/prodigy-x-loader/eajlgdnpohfeclpikjpnhadfkboknaop?pli=1
+1. Go to <https://chrome.google.com/webstore/detail/prodigy-x-loader/eajlgdnpohfeclpikjpnhadfkboknaop?pli=1>
 2. Click ``Add To Chrome``.
 3. Now click ``Add Extension``
 
