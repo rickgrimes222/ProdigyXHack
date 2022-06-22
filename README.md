@@ -19,6 +19,9 @@
     <a href="https://chrome.google.com/webstore/detail/prodigy-x-loader/eajlgdnpohfeclpikjpnhadfkboknaop">
 	    <img alt="Extension Downloads" src="https://img.shields.io/chrome-web-store/users/eajlgdnpohfeclpikjpnhadfkboknaop?color=green&label=Extension%20Downloads">
     </a>
+    <a>
+	    <img alt="Visitors" src="https://visitor-badge.glitch.me/badge?page_id=page.id">
+    </a>
     <a href="https://discord.com/invite/YRtwBJrmGa">
 	    <img alt="Discord Members" src="https://img.shields.io/discord/957314086037782638.svg?color=7289da&label=Discord&logo=discord&style=flat-square">
     </a>
