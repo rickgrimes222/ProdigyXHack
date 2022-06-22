@@ -98,5 +98,6 @@ withCategory(Category.BATTLE, ({ hack, toggle }) => {
                 }
             }, 1000)
         }
+        success(toggled ? "You will no longer do any math." : "You will now do math.")
     })
 })
