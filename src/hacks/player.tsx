@@ -1,6 +1,6 @@
 import { h } from "preact"
 import PlayerName, { NameInfo } from "../components/PlayerName"
-import { getMembership } from "../hack"
+import { getMembership, getWorld } from "../hack"
 import { ArgumentFailureError, customMessage, InputTypes, success, error } from "../swal"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
@@ -112,5 +112,20 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
         const value = await InputTypes.integer("Please enter the grade you want to be.", 1, 8)
         player.grade = value
         success(`You are now grade ${value}.`)
+    })
+    hack("Complete Current Task In Quest", "Completes current task in quest. (Use this button a lot to complete a quest.)", async () => {
+        const world = getWorld()
+        const zones = {}
+        Object.keys(world.zones).forEach(element => {
+            zones[element] = world.zones[element].name
+        })
+        const questName = Object.keys(zones)[await InputTypes.select("Please select the quest you want to complete.", Object.values(zones))]
+        const questID = world.zones[questName].getCurrentQuestID()
+        if (world.zones[questName].completeQuest(questID)) {
+            world.goToZoneHub(questName)
+            success(`Completed current task in the ${world.zones[questName].name} quest successfully!`)
+        } else {
+            error("There was an error completing the quest. Did you already complete it?")
+        }
     })
 })
