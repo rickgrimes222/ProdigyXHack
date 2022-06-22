@@ -71,4 +71,32 @@ withCategory(Category.BATTLE, ({ hack, toggle }) => {
             error("You are currently not in a battle.")
         }
     })
+    let combatManagerInterval
+    toggle("Easy Mode", (hack, player, gameData, toggled) => {
+        if (toggled) {
+            combatManagerInterval = setInterval(() => {
+                const combatManager = hack._state._current.combatManager
+                if (combatManager) {
+                    // @ts-ignore
+                    window.combatManagerOpenQuestion = combatManager.openQuestion
+                    combatManager.openQuestion = (target: any, attack: any) => {
+                        combatManager.previousSpell = attack
+                        combatManager.firstQuestion = false
+                        combatManager.answerQuestion(target, attack, true, 0)
+                    }
+                    clearInterval(combatManagerInterval)
+                }
+            }, 1000)
+        } else {
+            clearInterval(combatManagerInterval)
+            combatManagerInterval = setInterval(() => {
+                const combatManager = hack._state._current.combatManager
+                if (combatManager) {
+                    // @ts-ignore
+                    combatManager.openQuestion = window.combatManagerOpenQuestion
+                    clearInterval(combatManagerInterval)
+                }
+            }, 1000)
+        }
+    })
 })

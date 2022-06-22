@@ -2705,6 +2705,7 @@ export interface Game {
                 _states: Map<string, (any | any /* too deep */)>;
                 states: Map<string, (any | any /* too deep */)>;
                 _current: {
+                    combatManager: any;
                     _loadCompleteSent: boolean;
                     complete: boolean;
                     fadeInSet: boolean;
