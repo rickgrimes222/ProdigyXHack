@@ -128,4 +128,8 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
             error("There was an error completing the quest. Did you already complete it?")
         }
     })
+    hack("Unlimited Spins", "Gives you unlimited spins on the Wheel Of Wonder.", (hack, player) => {
+        player.canSpin = () => {return true}
+        success("You can now spin the wheel unlimited times.")
+    })
 })
