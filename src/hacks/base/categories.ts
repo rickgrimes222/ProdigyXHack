@@ -4,6 +4,7 @@ export enum Category {
     PET = "Pet Hacks",
     BATTLE = "Battle Hacks",
     UTILITY = "Utility Hacks",
+    MINIGAME = "Minigame Hacks",
 }
 
 export const sortGroups = (groups: [Category, HackData[]][]): [Category, HackData[]][] => {
