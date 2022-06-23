@@ -2,7 +2,7 @@
 
 There are 2 different methods of installing Prodigy X.
 
-## Extension Method Manual (only works on Chrome, but easier)
+## Extension Method Webstore (only works on Chrome, but easier)
 
 The extension method is the easiest way to install Prodigy X.
 
