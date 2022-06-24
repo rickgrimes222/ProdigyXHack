@@ -13,7 +13,7 @@ The extension method is the easiest way to install Prodigy X.
 Now when you log onto Prodigy, Prodigy X will automatically get loaded!
 
 Here's a video to show you how to do it!
-![type:video](https://www.youtube.com/embed/zbZc-TPtFJQ)
+![type:video](https://www.youtube.com/embed/NeHUmliVz-k)
 
 ## Extension Method Manual (only works on Chrome, but easier)
 
