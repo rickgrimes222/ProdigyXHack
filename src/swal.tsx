@@ -29,20 +29,20 @@ export async function swalInput ({ value, input = "text", title, placeholder, va
 }
 
 export namespace InputTypes {
-    export async function string (value: string) {
-        return String(await swalInput({ value }))
+    export async function string (value: string, defaultValue?: string) {
+        return String(await swalInput({ value, swalOptions: { inputValue: defaultValue } }))
     }
 
-    export async function integer (value: string, min = 0, max = Infinity) {
-        return parseInt(await swalInput({ value, input: "number", validator: value => (value.trim() ? (parseInt(value) >= min && parseInt(value) <= max ? null : `Please enter a value between ${min} and ${max}.`) : "Please enter a value.") }))
+    export async function integer (value: string, min = 0, max = Infinity, defaultValue?: number) {
+        return parseInt(await swalInput({ value, input: "number", validator: value => (value.trim() ? (parseInt(value, 10) >= min && parseInt(value, 10) <= max ? null : `Please enter a value between ${min} and ${max}.`) : "Please enter a value."), swalOptions: { inputValue: defaultValue } }), 10)
     }
 
     export async function float (value: string) {
         return parseFloat(await swalInput({ value, input: "text", validator: value => isNaN(parseFloat(value)) ? "Please enter a decimal." : null }))
     }
 
-    export async function select (value: string, options: string[]) {
-        return parseInt(await swalInput({ value, title: "Select a value", input: "select", placeholder: "Select...", validator: value => value ? "" : "Please select which you'd like to obtain.", swalOptions: { confirmButtonText: "Select", inputOptions: options } }))
+    export async function select (value: string, options: string[], defaultValue?: number) { // DefaultValue is the index of the selected option
+        return parseInt(await swalInput({ value, title: "Select a value", input: "select", placeholder: "Select...", validator: value => value ? "" : "Please select which you'd like to obtain.", swalOptions: { confirmButtonText: "Select", inputOptions: options, inputValue: defaultValue } }), 10)
     }
 }
 
