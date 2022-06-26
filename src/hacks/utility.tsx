@@ -34,7 +34,7 @@ withCategory(Category.UTILITY, ({ hack, toggle }) => {
                 }
             }, 100)
         }
-        success(`You are now at a walkspeed ${walkSpeed}.`)
+        success(`You are now at a walkspeed of ${walkSpeed}.`)
     })
     hack("Reset Account", "Completely resets your account.", async (hack, player) => {
         const confirmed = await confirm("Are you sure you want to reset your account?")

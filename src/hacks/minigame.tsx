@@ -1,8 +1,13 @@
-import { success, error } from "../swal"
+import { success, error, InputTypes } from "../swal"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
 
 withCategory(Category.MINIGAME, ({ hack, toggle }) => {
+    hack("Edit Dino Dig Walkspeed", "Edit the walkspeed of your player in dino dig.", async (hack, player) => {
+        const value = await InputTypes.integer("Please enter the walkspeed you want your character to be at. The default is 1.5", 1, 100)
+        hack._state.states.get("DinoDig").walkSpeed = value
+        success(`You are now at a walkspeed of ${value}.`)
+    })
     hack("Extra Time In Dino Dig", "Add 100 days to the timer in dino dig.", async (hack) => {
         if (!hack._state.states.get("DinoDig")?.timer?.addTime) {
             error("You are not in dino dig.")
