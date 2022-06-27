@@ -13,7 +13,7 @@ function itemify (item, amount) {
 
 withCategory(Category.INVENTORY, ({ hack }) => {
     hack("Item Stacker", "Get's a certain amount of every item.", async (hack, player, gameData) => {
-        const value = await InputTypes.integer("Please enter the amount of every item you want to get.", 0, 999)
+        const value = await InputTypes.integer("Please enter the amount of every item you want to get.", 0, 9999)
 
         ids.forEach(id => {
             player.backpack.data[id] = itemify(gameData[id].filter(l => id === "follow" ? ![125, 126, 127, 128, 129, 134, 135, 136, 137].includes(l.ID) : l), value)
@@ -43,7 +43,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
         const value = await InputTypes.select("Please select the category of items you want to get.", names)
         const name = names[value]
         const id = ids[value]
-        let amount = await InputTypes.integer(`Please enter the amount of ${name.toLocaleLowerCase()} you want to get.`, 0, 999)
+        let amount = await InputTypes.integer(`Please enter the amount of ${name.toLocaleLowerCase()} you want to get.`, 0, 9999)
         if (id === "mount") amount = Math.min(amount, gameData.mount.length)
         player.backpack.data[id] = itemify(gameData[id].filter(i => id === "follow" ? ![125, 126, 127, 128, 129, 134, 135, 136, 137].includes(i.ID) : i), amount)
         success(`You now have ${amount} of all ${name.toLocaleLowerCase()}.`)
@@ -54,7 +54,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
         const itemCategoryOptions = gameData[itemCategoryId]
         const item = await InputTypes.select("Please select the item you want to get.", itemCategoryOptions.map(e => e.data.name))
         const itemData = itemCategoryOptions[item]
-        const amount = await InputTypes.integer(`Please enter the amount of ${itemData.data.name} you want to get.`, 0, 999)
+        const amount = await InputTypes.integer(`Please enter the amount of ${itemData.data.name} you want to get.`, 0, 9999)
         const indexOfItem = player.backpack.data[itemCategoryId].findIndex(i => i.ID === itemData.ID)
         if (indexOfItem === -1) {
             player.backpack.data[itemCategoryId].push({ ID: itemData.ID, N: amount })
@@ -64,7 +64,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
         success(`You now have ${amount} of ${itemData.data.name}.`)
     })
     hack("Obtain All Furniture", "Get's a certain amount of every furniture item.", async (hack, player, gameData) => {
-        const value = await InputTypes.integer("Please enter the amount of every furniture item you want to get.", 0, 999)
+        const value = await InputTypes.integer("Please enter the amount of every furniture item you want to get.", 0, 9999)
         gameData.dorm.forEach(x => {
             player.house.data.items[x.ID] = {
                 A: [],
