@@ -58,8 +58,8 @@ withCategory(Category.PET, ({ hack }) => {
         success("The battle crash should fixed.")
     })
     hack("Add Pet", "Add a pet to your kennel.", async (hack, player, gameData) => {
-        const petIndex = await InputTypes.select("Which pet do you want to obtain?", gameData.pet.map(x => x.data.name))
-        const pet = gameData.pet[petIndex]
+        const petIndex = await InputTypes.select("Which pet do you want to obtain?", gameData.pet.map(x => x.data.name).sort((a, b) => a.localeCompare(b)))
+        const pet = gameData.pet[gameData.pet.findIndex(x => x.data.name === gameData.pet.map(x => x.data.name).sort((a, b) => a.localeCompare(b))[petIndex])]
         const level = await InputTypes.integer("Please enter the level you want the pet to be.", 1, 100)
         let xp
         if (level === 1) {
