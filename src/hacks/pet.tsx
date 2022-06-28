@@ -87,7 +87,7 @@ withCategory(Category.PET, ({ hack }) => {
     })
     hack("Delete Pet", "Delete a pet from your kennel.", async (hack, player, gameData) => {
         const petsArray = []
-        player.kennel.data.forEach(x => {
+        player.kennel.data.sort((a, b) => (a.nickname ?? gameData.pet.find(i => +i.ID === +a.ID)?.data.name ?? "Unknown").localeCompare(b.nickname ?? gameData.pet.find(i => +i.ID === +b.ID)?.data.name ?? "Unknown")).forEach(x => {
             petsArray.push(`${x.nickname ?? gameData.pet.find(i => +i.ID === +x.ID)?.data.name ?? "Unknown"} | Level ${x.level}`)
         })
         const petIndex = await InputTypes.select("Which pet do you want to delete?", petsArray)
