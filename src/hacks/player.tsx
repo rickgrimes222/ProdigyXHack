@@ -1,6 +1,6 @@
 import { h } from "preact"
 import PlayerName, { NameInfo } from "../components/PlayerName"
-import { getMembership, getWorld } from "../hack"
+import { getMembership, getLegacyMembership, getWorld } from "../hack"
 import { ArgumentFailureError, customMessage, InputTypes, success, error } from "../swal"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
@@ -50,6 +50,15 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
         getMembership(toggled) // TODO: If on extension, use _ method.
         success(`You are ${toggled ? "now a member" : "no longer a member"}.`)
     }, (hack, player) => player.hasMembership())
+    toggle("Toggle Ultimate Membership", async (hack, player, gameData, toggled, setToggled) => {
+        if (!player.hasMembership() && toggled) {
+            setToggled(false)
+            error("You need to toggle regular membership before toggling ultimate membership.")
+            return
+        }
+        getLegacyMembership(toggled) // TODO: If on extension, use _ method.
+        success(`You are ${toggled ? "now an ultimate member" : "no longer an ultimate member"}.`)
+    }, (hack, player) => player.hasLegacyMembership())
     hack("Set Wins", "Set's the amount of wins you have currently.", async (hack, player) => {
         const value = await InputTypes.integer("Please enter the amount of wins you want to get.", 0, 9999999)
         player.data.win = value
