@@ -5,10 +5,6 @@
 </p>
 <br />
 <p align="center">
-    <img alt="Prodigy X Menu" src="https://user-images.githubusercontent.com/63412264/176785598-9f2c7d33-030c-49e4-85d3-d85f5e3c258f.png">
-</p>
-<br />
-<p align="center">
 	<strong>
 		<a href="https://prodigyapi.github.io/ProdigyX/">Website</a>
 		•
@@ -35,3 +31,7 @@
 </p>
 
 For usage/installation, visit our documentation [here](https://ProdigyAPI.github.io/ProdigyX/).
+<p align="center">
+    <img alt="Prodigy X Menu" src="https://user-images.githubusercontent.com/63412264/176785598-9f2c7d33-030c-49e4-85d3-d85f5e3c258f.png">
+</p>
+<br />
