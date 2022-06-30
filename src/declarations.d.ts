@@ -6,7 +6,7 @@ import { Player } from "./types/player"
 /* eslint-disable no-unused-vars */
 declare global {
     type HackFunction = (hack: Game, player: Player, gameData: GameData) => Promise<void> | void
-    type ToggleFunction = (hack: Game, player: Player, gameData: GameData, toggleState: boolean) => Promise<void> | void
+    type ToggleFunction = (hack: Game, player: Player, gameData: GameData, toggleState: boolean, setToggled: Function) => Promise<void> | void
     interface HackData {
         name: string
         description?: string

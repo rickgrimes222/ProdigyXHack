@@ -20,7 +20,7 @@ const Toggle: FunctionalComponent<ToggleProps> = ({ name, toggleFunction, checke
         const gameData = process.env.EXTENSION ? _.gameData : getGameData() as any
         if (hack) {
             try {
-                await toggleFunction(hack, player, gameData, newToggled)
+                await toggleFunction(hack, player, gameData, newToggled, setToggled)
             } catch (error) {
                 if (error instanceof ArgumentFailureError) return
                 throw error
