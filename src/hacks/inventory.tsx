@@ -184,7 +184,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
 
                             return (
                                 <li key={lootItem.type + lootItem.ID}>
-                                    {itemData.data.name} <img src={`https://cdn.prodigygame.com/game/assets/v1_cache/single-images/icon-${itemData.type}-${itemData.ID}/${itemData.metadata.vIcon}/icon-${itemData.type}-${itemData.ID}.png`} />
+                                    {lootItem.quantity} of {itemData.data.name} <img src={`https://cdn.prodigygame.com/game/assets/v1_cache/single-images/icon-${itemData.type}-${itemData.ID}/${itemData.metadata.vIcon}/icon-${itemData.type}-${itemData.ID}.png`} />
                                 </li>
                             )
                         })}
