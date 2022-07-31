@@ -189,7 +189,6 @@ withCategory(Category.INVENTORY, ({ hack }) => {
                             )
                         })}
                     </ul>
-
                     Reload your page to be able to use this hack again.
                 </div>
             })
