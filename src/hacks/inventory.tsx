@@ -89,7 +89,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
         const token = `Bearer ${hack._input.onDown._bindings[0].context.jwtAuthProvider.getToken()}`
         const userID = hack._input.onDown._bindings[0].context.api.userID
 
-        const petIds: number[] = player.kennel._petTeam.filter(e => Number.isInteger(e.data.ID)).map(e => e.data.ID)
+        const petIds: number[] = player.kennel._petTeam.filter(e => !isNaN(parseInt(e.data.ID, 10))).map(e => e.data.ID)
         const teamCurrentHP: number[] = player.kennel._petTeam.map(e => e.getCurrentHearts())
 
         const bounty = await fetch("https://api.prodigygame.com/game-cortex-server/acceptBounty", {
