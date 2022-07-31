@@ -175,7 +175,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
                 title: "Success!",
                 html: <div>
                     You obtained these items:
-                    <ul className="list-disc">
+                    <ul className="list-disc list-inside">
                         {[...actionData.lootSecure, ...actionData.lootUnSecure].map((lootItem: LootItem) => {
                             // I'll pull a quote from Prodigy's source code
                             // Gold...our fabulous little currency that needs to be converted all the time
