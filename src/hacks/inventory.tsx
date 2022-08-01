@@ -220,7 +220,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
                 headers: {
                     accept: "*/*",
                     "accept-language": "en-US,en;q=0.9",
-                    authorization: "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ijc3NGE2In0.eyJjb250ZW50Ijp7InVzZXJJRCI6MTc0MDE2NTEyLCJjbGllbnRJRCI6IjEifSwiaWF0IjoxNjU5MzEzNDg5LCJleHAiOjE2NTkzMTcwODl9.F4kV134lFP2m2w6NPvvhCIbM64QApZ-Mo9Y9vfAebT0iVGOeJketLHSZEyALPo-kX1R-WzfWFdcTvppEXIiyRLUJ62z6g1O_ioU-5iwvhBCZ0crhM2E5C02f_HMI2sZnjn6N0csJMAovmR7ukGu_cYbzEfEAQCh07TXIm2305KfEeuMxQ8tvDuQDrBUKvVo6YgYjSCpgngWM1p028BzKe4oaUP5g4swwtM_CWhW8XbofiSotb_Kf5IqlxH3YXreEtonHspelCrU7XUexsLCnu1sK5GyNIBvYfbWmzYCLhcDzeV1tU900Cl_oad0X7pcEU1ryUbYdlvU-aCgpwmQzqt__onRBrmF4bNRsih_xv33rB3oFU0LLJwgwy_hFUUA2tU0eMa00MbOcmTXgtfJL39yJ0SU8V3tsufhz9E2Flu_sphHprZD3aXGaLtTMxXxVJ_gAhXtLzZcIwO4YxPvPu0Mgr4RnrT1CAxc-C6oHNf-UstbmONjDjzJQGbkzr57AEPTuXWI9hd1-K3gqf8d_abKnoJBOcng25TzNwhubE1rttkp3-pE8uw30k2s6DjqJIaSh4Gk6tGmfkhTjll-6dxElkWBVPcyLDv0Qmk24gVsI13fPGVFwV1ZkO6owCVvG2cgHjKeWbdzDgaAaa6LEawahPp3ZbpAsNxHMXBXzxBI",
+                    authorization: token,
                     "content-type": "application/json",
                     "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
                     "sec-ch-ua-mobile": "?0",
