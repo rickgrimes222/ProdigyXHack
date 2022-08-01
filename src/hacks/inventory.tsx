@@ -170,6 +170,24 @@ withCategory(Category.INVENTORY, ({ hack }) => {
         }
 
         if (actionData.status === "home-win") {
+            await fetch("https://api.prodigygame.com/game-cortex-server/listBountyRuns?userID=177867078", {
+                headers: {
+                    accept: "*/*",
+                    "accept-language": "en-US,en;q=0.9",
+                    authorization: token,
+                    "if-none-match": "W/\"1bc-f++5y4fDul2zBpKrYQ4UE61ANfg\"",
+                    "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Windows\"",
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-site",
+                    Referer: "https://math.prodigygame.com/",
+                    "Referrer-Policy": "strict-origin-when-cross-origin"
+                },
+                body: null,
+                method: "GET"
+            })
             await customMessage({
                 title: "Success!",
                 html: <div>
@@ -189,7 +207,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
                             )
                         })}
                     </ul>
-                    Reload your page to be able to use this hack again.
+                    You may need to reload your page to be able to use this hack again.
                 </div>
             })
         } else {
