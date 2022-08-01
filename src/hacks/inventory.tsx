@@ -177,7 +177,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
                     "sec-fetch-site": "same-site",
                     Referer: "https://math.prodigygame.com/"
                 },
-                body: `{"battleID":"${battleData.id}","actionID":"${crypto.randomUUID()}","action":"castSpell","data":{"id":54,"energy":0,"questionCorrect":true,"nFactor":1},"userID":${userID}}`,
+                body: `{"battleID":"${battleData.id}","actionID":"${crypto.randomUUID()}","action":"castSpell","data":{"id":54,"energy":0,"questionCorrect":true,"nFactor":9},"userID":${userID}}`,
                 method: "POST"
             })
 
