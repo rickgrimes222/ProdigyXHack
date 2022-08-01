@@ -89,6 +89,25 @@ withCategory(Category.INVENTORY, ({ hack }) => {
         const token = `Bearer ${hack._input.onDown._bindings[0].context.jwtAuthProvider.getToken()}`
         const userID = hack._input.onDown._bindings[0].context.api.userID
 
+        await fetch(`https://api.prodigygame.com/game-cortex-server/listBountyRuns?userID=${userID}`, {
+            headers: {
+                accept: "*/*",
+                "accept-language": "en-US,en;q=0.9",
+                authorization: token,
+                "if-none-match": "W/\"1bc-f++5y4fDul2zBpKrYQ4UE61ANfg\"",
+                "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": "\"Windows\"",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site",
+                Referer: "https://math.prodigygame.com/",
+                "Referrer-Policy": "strict-origin-when-cross-origin"
+            },
+            body: null,
+            method: "GET"
+        })
+
         const petIds: number[] = player.kennel._petTeam.map(e => parseInt(e.data.ID, 10)).filter(e => !isNaN(e))
         const teamCurrentHP: number[] = player.kennel._petTeam.map(e => e.getCurrentHearts())
 
@@ -170,24 +189,6 @@ withCategory(Category.INVENTORY, ({ hack }) => {
         }
 
         if (actionData.status === "home-win") {
-            await fetch("https://api.prodigygame.com/game-cortex-server/listBountyRuns?userID=177867078", {
-                headers: {
-                    accept: "*/*",
-                    "accept-language": "en-US,en;q=0.9",
-                    authorization: token,
-                    "if-none-match": "W/\"1bc-f++5y4fDul2zBpKrYQ4UE61ANfg\"",
-                    "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-ch-ua-platform": "\"Windows\"",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-site",
-                    Referer: "https://math.prodigygame.com/",
-                    "Referrer-Policy": "strict-origin-when-cross-origin"
-                },
-                body: null,
-                method: "GET"
-            })
             await customMessage({
                 title: "Success!",
                 html: <div>
