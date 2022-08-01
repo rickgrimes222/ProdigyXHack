@@ -180,6 +180,9 @@ withCategory(Category.INVENTORY, ({ hack }) => {
                 body: `{"battleID":"${battleData.id}","actionID":"${crypto.randomUUID()}","action":"castSpell","data":{"id":54,"energy":0,"questionCorrect":true,"nFactor":1},"userID":${userID}}`,
                 method: "POST"
             })
+
+            if (!actionRequest.ok) break
+
             actionData = await actionRequest.json()
 
             if (actionData.status === "home-win") {
@@ -212,7 +215,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
                 </div>
             })
         } else {
-            await error("A problem occured in the battle.")
+            await error("A problem occured in the battle. Make sure your wizard is in the first spot.")
         }
     })
 })
