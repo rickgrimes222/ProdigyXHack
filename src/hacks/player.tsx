@@ -138,7 +138,7 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
         }
     })
     hack("Unlimited Spins", "Gives you unlimited spins on the Wheel Of Wonder.", (hack, player) => {
-        player.canSpin = () => {return true}
+        player.canSpin = () => { return true }
         success("You can now spin the wheel unlimited times.")
     })
 })

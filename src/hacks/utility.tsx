@@ -75,4 +75,52 @@ withCategory(Category.UTILITY, ({ hack, toggle }) => {
         _.instance.prodigy.open.menuCloseAll()
         success("All open popups were closed.")
     }, true)
+    hack("Generate Alt Account", "This will generate an alternative account from your data.", async (hack, player) => {
+        const [username, password] = await (await fetch(`https://prodigy-api.hostedposted.com/generate-account?${
+            new URLSearchParams({
+                username: await InputTypes.string("Please enter your username. This will not be your actual username. The actual one will be this plus the last initial you choose, plus a number which corresponds to the number of accounts that have started with the username so far."),
+                password: await InputTypes.string("Please enter your password"),
+                lastInitial: await InputTypes.string("Please enter your last initial")
+            })
+        }`)).json()
+
+        const basicAuth = `Basic ${btoa(`${username}:${password}`)}`
+
+        const { token, userID } = await (await fetch("https://prodigy-api.hostedposted.com/token", {
+            headers: {
+                Authorization: basicAuth
+            }
+        })).json()
+
+        const saveInfo = await fetch(`https://api.prodigygame.com/game-api/v3/characters/${userID}`, {
+            headers: {
+                accept: "*/*",
+                "accept-language": "en-US,en;q=0.9",
+                authorization: `Bearer ${token}`,
+                "content-type": "application/json",
+                "sec-ch-ua": "\".Prodigy/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": "\"Windows\"",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site",
+                Referer: "https://math.prodigygame.com/",
+                "Referrer-Policy": "strict-origin-when-cross-origin"
+            },
+            body: JSON.stringify({
+                data: JSON.stringify(player.getUpdatedData(true)),
+                userID
+            }),
+            method: "POST"
+        })
+
+        if (!saveInfo.ok) {
+            error(`Could not save data to generated account ('${username}' '${password}'). ${saveInfo.statusText} ${saveInfo.status}. ${await saveInfo.text()}`)
+            return
+        }
+
+        if (username && password) {
+            success(`Account '${username}' has been generated with a password of '${password}'.`)
+        }
+    }, true)
 })

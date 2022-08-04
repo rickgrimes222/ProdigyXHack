@@ -137,7 +137,7 @@ export interface Player {
     getTeamScore(): any;
     getTowerProgress(): any;
     getUltimatePetId(): any;
-    getUpdatedData(c: any, u: any): any;
+    getUpdatedData(c: any, u?: any): any;
     getWins(): any;
     hasCompletedTowerTownTutorial(): any;
     hasCompletedTutorial(): any;
