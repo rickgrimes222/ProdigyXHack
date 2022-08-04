@@ -71,4 +71,8 @@ withCategory(Category.UTILITY, ({ hack, toggle }) => {
             error(`Account ${userId} could not be copied.`)
         }
     })
+    hack("Close All Popups", "Closes every popup. Warning: If you close a 418 popup, your account will not save until you reload.", async () => {
+        _.instance.prodigy.open.menuCloseAll()
+        success("All open popups were closed.")
+    }, true)
 })
