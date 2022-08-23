@@ -1,8 +1,29 @@
 import { h } from "preact"
-import { saveGame, setFromUserID } from "../hack"
+import { getPlayer, saveGame, setFromUserID } from "../hack"
 import { InputTypes, success, confirm, error, customMessage } from "../swal"
+import { Player } from "../types/player"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
+
+const keyboardEvent = (event: KeyboardEvent) => {
+    const { playerContainer } = getPlayer() as Player
+    let { x, y } = playerContainer
+    switch (event.key) {
+    case "ArrowUp":
+        y -= 10
+        break
+    case "ArrowDown":
+        y += 10
+        break
+    case "ArrowLeft":
+        x -= 10
+        break
+    case "ArrowRight":
+        x += 10
+        break
+    }
+    playerContainer.locomotion.onMovePlayer(x, y)
+}
 
 withCategory(Category.UTILITY, ({ hack, toggle }) => {
     hack("Save Character", "Use this to make sure your character is saved.", async () => {
@@ -123,4 +144,13 @@ withCategory(Category.UTILITY, ({ hack, toggle }) => {
             success(`Account '${username}' has been generated with a password of '${password}'.`)
         }
     }, true)
+    toggle("Toggle Arrow Key Movement", (hack, player, gameData, toggled) => {
+        if (toggled) {
+            window.addEventListener("keydown", keyboardEvent)
+            success("You will now be able to move your character with the arrow keys.")
+        } else {
+            window.removeEventListener("keydown", keyboardEvent)
+            success("You will no longer be able to move your character with the arrow keys.")
+        }
+    }, () => false)
 })
