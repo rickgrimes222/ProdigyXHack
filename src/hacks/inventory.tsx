@@ -231,7 +231,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
                     Referer: "https://math.prodigygame.com/",
                     "Referrer-Policy": "strict-origin-when-cross-origin"
                 },
-                body: "{\"userID\":174016512}",
+                body: `{"userID":${userID}}`,
                 method: "POST"
             })
         }
