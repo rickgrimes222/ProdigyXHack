@@ -21,7 +21,7 @@ const Toggle: FunctionalComponent<ToggleProps> = ({ name, toggleFunction, checke
         if (hack) {
             try {
                 await toggleFunction(hack, player, gameData, newToggled, setToggled)
-                window.gtag("event", `toggle_${name.toLowerCase().replace(/ /g, "_")}_${toggled}`, {
+                window.gtag("event", `toggle_${name.toLowerCase().replace(/ /g, "_")}_${newToggled}`, {
                     event_category: "Toggler",
                     event_label: name,
                     event_callback: () => {
