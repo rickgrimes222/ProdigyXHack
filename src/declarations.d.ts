@@ -16,6 +16,9 @@ declare global {
         extensionOnly?: boolean
         getDefaultValue?: (hack: any, player: any, gameData: any) => boolean // for toggle hacks
     }
+    interface Window {
+        gtag: (...args: any[]) => void
+    }
     const _: any
 }
 

@@ -16,6 +16,11 @@ const Hack: FunctionalComponent<HackProps> = ({ name, description, hackFunction 
         if (hack) {
             try {
                 await hackFunction(hack, player, gameData)
+                window.gtag("event", `hack_${name.toLowerCase().replace(/ /g, "_")}`, {
+                    event_callback: () => {
+                        console.log(`${name} hack successful`)
+                    }
+                })
             } catch (error) {
                 if (error instanceof ArgumentFailureError) return
                 throw error

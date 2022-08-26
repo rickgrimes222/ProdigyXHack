@@ -15,6 +15,20 @@ export const menuElement = document.createElement("div")
 menuElement.id = PRODIGY_X_CHEAT_MENU_ID
 document.getElementById("game-wrapper")?.prepend(menuElement)
 
+const googleAnalytics = document.createElement("script")
+googleAnalytics.src = "https://www.googletagmanager.com/gtag/js?id=G-Y90WPR2D4H"
+document.head.appendChild(googleAnalytics)
+
+const googleAnalyticsScript = document.createElement("script")
+googleAnalyticsScript.innerHTML = `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-Y90WPR2D4H');
+gtag('event', ${process.env.EXTENSION ? "\"uses_extension\"" : "\"does_not_use_extension\""});
+`
+document.head.appendChild(googleAnalyticsScript)
+
 const interval = setInterval(() => {
     try {
         if (process.env.EXTENSION ? _.player : getPlayer()) {
