@@ -21,6 +21,13 @@ const Toggle: FunctionalComponent<ToggleProps> = ({ name, toggleFunction, checke
         if (hack) {
             try {
                 await toggleFunction(hack, player, gameData, newToggled, setToggled)
+                window.gtag("event", `toggle_${name.toLowerCase().replace(/ /g, "_")}_${toggled}`, {
+                    event_category: "Toggler",
+                    event_label: name,
+                    event_callback: () => {
+                        console.log(`${name} toggle successful`)
+                    }
+                })
             } catch (error) {
                 if (error instanceof ArgumentFailureError) return
                 throw error

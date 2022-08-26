@@ -17,6 +17,8 @@ const Hack: FunctionalComponent<HackProps> = ({ name, description, hackFunction 
             try {
                 await hackFunction(hack, player, gameData)
                 window.gtag("event", `hack_${name.toLowerCase().replace(/ /g, "_")}`, {
+                    event_category: "Hack",
+                    event_label: name,
                     event_callback: () => {
                         console.log(`${name} hack successful`)
                     }
