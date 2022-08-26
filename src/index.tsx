@@ -25,7 +25,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 
 gtag('config', 'G-Y90WPR2D4H');
-gtag('event', ${process.env.EXTENSION ? "\"uses_extension\"" : "\"does_not_use_extension\""});
+gtag('event', ${process.env.EXTENSION ? "\"uses_extension\"" : "\"extension_less\""});
 `
 document.head.appendChild(googleAnalyticsScript)
 
