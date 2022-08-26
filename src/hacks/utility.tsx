@@ -12,16 +12,29 @@ const keyboardEvent = (event: KeyboardEvent) => {
     case "ArrowUp":
         y -= 10
         break
+    case "w":
+        y -= 10
+        break
     case "ArrowDown":
+        y += 10
+        break
+    case "s":
         y += 10
         break
     case "ArrowLeft":
         x -= 10
         break
+    case "a":
+        x -= 10
+        break
     case "ArrowRight":
         x += 10
         break
+    case "d":
+        x += 10
+        break
     }
+    
     playerContainer.locomotion.onMovePlayer(x, y)
 }
 
@@ -147,10 +160,10 @@ withCategory(Category.UTILITY, ({ hack, toggle }) => {
     toggle("Toggle Arrow Key Movement", (hack, player, gameData, toggled) => {
         if (toggled) {
             window.addEventListener("keydown", keyboardEvent)
-            success("You will now be able to move your character with the arrow keys.")
+            success("You will now be able to move your character with the arrow keys or WASD.")
         } else {
             window.removeEventListener("keydown", keyboardEvent)
-            success("You will no longer be able to move your character with the arrow keys.")
+            success("You will no longer be able to move your character with the arrow keys or WASD.")
         }
     }, () => false)
 })
