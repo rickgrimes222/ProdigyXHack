@@ -166,4 +166,22 @@ withCategory(Category.UTILITY, ({ hack, toggle }) => {
             success("You will no longer be able to move your character with the arrow keys or WASD.")
         }
     }, () => false)
+    hack("Skip Tutorial", "Skip's the intro tutorial for new prodigy accounts.", async (hack, player) => {
+        const setQuest = (t: string, i: number, n?: unknown, e?: unknown) => {
+            _.instance.prodigy.world.getZone(t).testQuest(i, n, e);
+            try {
+                Object.fromEntries(hack.state.states).TileScreen.process();
+            } catch {}
+        };
+    
+        setQuest("house", 2);
+        setQuest("academy", 2);
+        player.state.set("tutorial-0", 4);
+        // @ts-ignore
+        player.backpack.addKeyItem(13, 0);
+        player.tutorial.data.menus[14] = [1];
+        _.instance.prodigy.open.map(true, []);
+        player.onTutorialComplete();
+        player.data.level = Math.max(_.player.data.level, 5);
+    }, true)
 })
