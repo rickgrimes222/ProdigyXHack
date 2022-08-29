@@ -34,7 +34,13 @@ const Hack: FunctionalComponent<HackProps> = ({ name, description, hackFunction 
         }
     }
 
-    return <button onClick={onClick} title={description} className="capitalize odd:bg-blue-600 even:bg-emerald-600 forest:odd:bg-pink-400 forest:even:bg-orange-400 shiverchill:odd:bg-[#5AC6FF] shiverchill:even:bg-[#7589CC] bonfire-spire:odd:bg-[#F76E11] bonfire-spire:even:!text-black bonfire-spire:even:bg-[#FF9F45] mt-2 md:mb-0 mr-3 text-white shadow-xl forest:shadow-md odd:shadow-blue-400 even:shadow-emerald-400 forest:odd:shadow-pink-400 forest:even:shadow-orange-400 shiverchill:odd:shadow-[#5AC6FF] shiverchill:even:shadow-[#7589CC] bonfire-spire:odd:shadow-[#F76E11] bonfire-spire:even:shadow-[#FF9F45] rounded px-4 py-1.5" data-mdb-ripple="true" data-mdb-ripple-color="light">{name}</button>
+    return (
+        <div data-mdb-ripple="true" data-mdb-ripple-color="light" className="capitalize rounded px-4 py-1.5 text-center odd:bg-blue-600 even:bg-emerald-600 forest:odd:bg-pink-400 forest:even:bg-orange-400 shiverchill:odd:bg-[#5AC6FF] shiverchill:even:bg-[#7589CC] bonfire-spire:odd:bg-[#F76E11] bonfire-spire:even:!text-black bonfire-spire:even:bg-[#FF9F45] mt-2 md:mb-0 mr-3 text-white shadow-xl forest:shadow-md odd:shadow-blue-400 even:shadow-emerald-400 forest:odd:shadow-pink-400 forest:even:shadow-orange-400 shiverchill:odd:shadow-[#5AC6FF] shiverchill:even:shadow-[#7589CC] bonfire-spire:odd:shadow-[#F76E11] bonfire-spire:even:shadow-[#FF9F45] ">
+            <button onClick={onClick} title={description}>
+                {name}
+            </button>
+        </div>
+    )
 }
 
 export default Hack
