@@ -1,7 +1,7 @@
 <h1 align="center">Prodigy X</h1>
 <br />
 <p align="center">
-    <img alt="Prodigy X Logo" src="https://user-images.githubusercontent.com/63412264/188280205-e1ce5297-7513-4bfe-b5da-966cc3db4891.png">
+    <img alt="Prodigy X Logo" src="https://media.discordapp.net/attachments/963933103632564335/980916202840920104/unknown.png">
 </p>
 <br />
 <p align="center">
@@ -32,6 +32,6 @@
 
 For usage/installation, visit our documentation [here](https://ProdigyAPI.github.io/ProdigyX/).
 <p align="center">
-    <img alt="Prodigy X Menu" src="https://user-images.githubusercontent.com/63412264/176785598-9f2c7d33-030c-49e4-85d3-d85f5e3c258f.png">
+    <img alt="Prodigy X Menu" src="https://user-images.githubusercontent.com/63412264/188280311-13f2be0e-3afe-44ed-add7-9d1086e36a6e.png">
 </p>
 <br />
