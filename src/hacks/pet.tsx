@@ -31,7 +31,8 @@ withCategory(Category.PET, ({ hack }) => {
         const xp = getXP(level)
         const pets = gameData.pet
         pets.forEach(x => {
-            player.kennel.addPet(x.ID.toString(), getHpFromPet(level, x), xp, level)
+            // @ts-ignore
+            player.kennel.addPet(x.data.member === 0 ? x.ID : x.ID.toString(), getHpFromPet(level, x), xp, level)
         })
         player.kennel._encounterInfo._data.pets = pets.map(x => ({
             firstSeenDate: Date.now() - randomIntFromInterval(20000, 120000),
