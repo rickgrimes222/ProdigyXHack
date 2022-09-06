@@ -34,7 +34,7 @@ const keyboardEvent = (event: KeyboardEvent) => {
         x += 10
         break
     }
-    
+
     playerContainer.locomotion.onMovePlayer(x, y)
 }
 
@@ -168,20 +168,23 @@ withCategory(Category.UTILITY, ({ hack, toggle }) => {
     }, () => false)
     hack("Skip Tutorial", "Skip's the intro tutorial for new prodigy accounts.", async (hack, player) => {
         const setQuest = (t: string, i: number, n?: unknown, e?: unknown) => {
-            _.instance.prodigy.world.getZone(t).testQuest(i, n, e);
+            _.instance.prodigy.world.getZone(t).testQuest(i, n, e)
             try {
-                Object.fromEntries(hack.state.states).TileScreen.process();
+                Object.fromEntries(hack.state.states).TileScreen.process()
             } catch {}
-        };
-    
-        setQuest("house", 2);
-        setQuest("academy", 2);
-        player.state.set("tutorial-0", 4);
+        }
+
+        setQuest("house", 2)
+        setQuest("academy", 2)
+        player.state.set("tutorial-0", 4)
         // @ts-ignore
-        player.backpack.addKeyItem(13, 0);
-        player.tutorial.data.menus[14] = [1];
-        _.instance.prodigy.open.map(true, []);
-        player.onTutorialComplete();
-        player.data.level = Math.max(_.player.data.level, 5);
+        player.backpack.addKeyItem(13, 0)
+        player.tutorial.data.menus[14] = [1]
+        _.instance.prodigy.open.map(true, [])
+        player.onTutorialComplete()
+        player.data.level = Math.max(_.player.data.level, 5)
     }, true)
+    hack("Go To Prodigy Wiki", "Opens up a new window with the prodigy wiki.", async () => {
+        window.open("https://prodigywiki.com")
+    })
 })
