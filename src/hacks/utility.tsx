@@ -1,5 +1,5 @@
 import { h } from "preact"
-import { getPlayer, saveGame, setFromUserID } from "../hack"
+import { getPlayer, getWorld, saveGame, setFromUserID } from "../hack"
 import { InputTypes, success, confirm, error, customMessage } from "../swal"
 import { Player } from "../types/player"
 import { Category } from "./base/categories"
@@ -166,6 +166,24 @@ withCategory(Category.UTILITY, ({ hack, toggle }) => {
             success("You will no longer be able to move your character with the arrow keys or WASD.")
         }
     }, () => false)
+    hack("Teleport To Map", "Easily teleport to anywhere on the map.", async () => {
+        const world = getWorld()
+        const locationNames = Object.values(world.zones).map((zone: any) => zone.name)
+        const locationIds = Object.keys(world.zones)
+
+        const location = await InputTypes.select("Please select the location you want to teleport to.", locationNames)
+        const locationId = locationIds[location]
+        const locationName = locationNames[location]
+
+        const zone = world.zones[locationId]
+        const maps = Object.keys(zone.maps)
+
+        const map = await InputTypes.select("Please select the map you want to teleport to.", maps)
+
+        zone.teleport(maps[map], 500, 500, {}, {})
+
+        success(`You have been teleported to ${locationName} - ${maps[map]}.`)
+    })
     hack("Skip Tutorial", "Skip's the intro tutorial for new prodigy accounts.", async (hack, player) => {
         const setQuest = (t: string, i: number, n?: unknown, e?: unknown) => {
             _.instance.prodigy.world.getZone(t).testQuest(i, n, e)
