@@ -195,7 +195,7 @@ withCategory(Category.INVENTORY, ({ hack }) => {
             customMessage({
                 title: "Success!",
                 html: <div>
-                    You obtained these items:
+                    <p className="font-bold">You obtained these items:</p>
                     <ul className="list-disc list-inside">
                         {[...actionData.lootSecure, ...actionData.lootUnSecure].map((lootItem: LootItem) => {
                             // I'll pull a quote from Prodigy's source code
@@ -206,12 +206,12 @@ withCategory(Category.INVENTORY, ({ hack }) => {
 
                             return (
                                 <li key={lootItem.type + lootItem.ID}>
-                                    {lootItem.quantity} of {itemData.data.name} <img src={`https://cdn.prodigygame.com/game/assets/v1_cache/single-images/icon-${itemData.type}-${itemData.ID}/${itemData.metadata.vIcon}/icon-${itemData.type}-${itemData.ID}.png`} />
+                                    {lootItem.quantity} of {itemData.data.name} <img className="m-auto block" height="40" width="40" src={`https://cdn.prodigygame.com/game/assets/v1_cache/single-images/icon-${itemData.type}-${itemData.ID}/${itemData.metadata.vIcon}/icon-${itemData.type}-${itemData.ID}.png`} />
                                 </li>
                             )
                         })}
                     </ul>
-                    You may need to reload your page to be able to use this hack again.
+                    <p className="font-bold">You may need to reload your page to be able to use this hack again.</p>
                 </div>
             })
         } else {
