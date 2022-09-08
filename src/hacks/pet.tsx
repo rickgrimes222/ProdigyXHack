@@ -1,4 +1,6 @@
 import { InputTypes, success, confirm, error } from "../swal"
+import { GameData } from "../types/gameData"
+import { Player } from "../types/player"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
 
@@ -25,22 +27,26 @@ function getXP (level) {
     return Math.round((((1 - Math.pow(xpConstant, offsetLevel)) / (1 - xpConstant)) * 20) + 10)
 }
 
+export function getAllPets (level: number, gameData: GameData, player: Player) {
+    const xp = getXP(level)
+    const pets = gameData.pet
+    pets.forEach(x => {
+        // @ts-ignore
+        player.kennel.addPet(x.data.member === 0 ? x.ID : x.ID.toString(), getHpFromPet(level, x), xp, level)
+    })
+    player.kennel._encounterInfo._data.pets = pets.map(x => ({
+        firstSeenDate: Date.now() - randomIntFromInterval(20000, 120000),
+        ID: x.ID,
+        timesBattled: 1,
+        timesRescued: 1,
+        rescueAttempts: 1
+    }))
+}
+
 withCategory(Category.PET, ({ hack }) => {
     hack("Get All Pets", "Every pet in the game gets added to your kennel.", async (hack, player, gameData) => {
         const level = await InputTypes.integer("Please enter the level you want the pets to be.", 1, 100)
-        const xp = getXP(level)
-        const pets = gameData.pet
-        pets.forEach(x => {
-            // @ts-ignore
-            player.kennel.addPet(x.data.member === 0 ? x.ID : x.ID.toString(), getHpFromPet(level, x), xp, level)
-        })
-        player.kennel._encounterInfo._data.pets = pets.map(x => ({
-            firstSeenDate: Date.now() - randomIntFromInterval(20000, 120000),
-            ID: x.ID,
-            timesBattled: 1,
-            timesRescued: 1,
-            rescueAttempts: 1
-        }))
+        getAllPets(level, gameData, player)
         success("You now have every pet in the game.")
     })
     hack("Clear All Pets", "Deletes all pets from your kennel.", async (hack, player) => {

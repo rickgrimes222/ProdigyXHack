@@ -1,5 +1,7 @@
 import { h } from "preact"
 import { confirm, InputTypes, success, error, customMessage } from "../swal"
+import { GameData } from "../types/gameData"
+import { Player } from "../types/player"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
 
@@ -23,20 +25,26 @@ export type LootItem = {
     quantity: number;
 };
 
+export function getAllItems (player: Player, gameData: GameData, value: number) {
+    ids.forEach(id => {
+        player.backpack.data[id] = itemify(gameData[id].filter(l => id === "follow" ? ![125, 126, 127, 128, 129, 134, 135, 136, 137].includes(l.ID) : l), value)
+    })
+
+    gameData.dorm.forEach(x => {
+        player.house.data.items[x.ID] = { A: [], N: value }
+    })
+
+    const bountyIndex = () => player.backpack.data.item.findIndex(v => v.ID === 84 || v.ID === 85 || v.ID === 86)
+    while (bountyIndex() > -1) {
+        player.backpack.data.item.splice(bountyIndex(), 1)
+    }
+}
+
 withCategory(Category.INVENTORY, ({ hack }) => {
     hack("Item Stacker", "Get's a certain amount of every item.", async (hack, player, gameData) => {
         const value = await InputTypes.integer("Please enter the amount of every item you want to get.", 0, 9999)
 
-        ids.forEach(id => {
-            player.backpack.data[id] = itemify(gameData[id].filter(l => id === "follow" ? ![125, 126, 127, 128, 129, 134, 135, 136, 137].includes(l.ID) : l), value)
-        })
-
-        gameData.dorm.forEach(x => {
-            player.house.data.items[x.ID] = { A: [], N: value }
-        })
-
-        const bountyIndex = () => player.backpack.data.item.findIndex(v => v.ID === 84 || v.ID === 85 || v.ID === 86)
-        while (bountyIndex() > -1) player.backpack.data.item.splice(bountyIndex(), 1)
+        getAllItems(player, gameData, value)
 
         success(`You now have ${value} of every item.`)
     })

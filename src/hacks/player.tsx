@@ -2,10 +2,43 @@ import { h } from "preact"
 import PlayerName, { NameInfo } from "../components/PlayerName"
 import { getMembership, getLegacyMembership, getWorld } from "../hack"
 import { ArgumentFailureError, customMessage, InputTypes, success, error } from "../swal"
+import { Player } from "../types/player"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
+import { getAllItems } from "./inventory"
+import { getAllPets } from "./pet"
+
+function changeLevel (level: number, player: Player) {
+    if (level === 1) {
+        player.data.stars = 0
+    } else if (level === 2) {
+        player.data.stars = 10
+    } else {
+        const offsetLevel = level - 2
+        const xpConstant = 1.042
+        player.data.stars = Math.round((((1 - Math.pow(xpConstant, offsetLevel)) / (1 - xpConstant)) * 20) + 10)
+    }
+
+    player.data.level = level
+}
 
 withCategory(Category.PLAYER, ({ hack, toggle }) => {
+    hack("Max Account", "Complete your account.", async (hack, player, gameData) => {
+        player.data.gold = 9000000
+        player.data.storedMemberStars = 9999999
+        player.data.bountyScore = 100
+        player.data.win = 1000
+        player.data.loss = 0
+        player.data.tower = 100
+        for (let i = 0; i < 100; i++) {
+            player.achievements.data.progress[i] = 10
+        }
+        player.achievements.updated = true
+        changeLevel(9999999, player)
+        getAllPets(100, gameData, player)
+        getAllItems(player, gameData, 999)
+        success("Your account is now maxed out.")
+    })
     hack("Set Gold", "Set's the amount of gold you have currently.", async (hack, player) => {
         const value = await InputTypes.integer("Please enter the amount of gold you want to get.", 1, 9000000)
         player.data.gold = value
@@ -13,17 +46,7 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
     })
     hack("Set Level", "Set's the level of your player.", async (hack, player) => {
         const value = await InputTypes.integer("Please enter the level you want to be.", 1, 100)
-        if (value === 1) {
-            player.data.stars = 0
-        } else if (value === 2) {
-            player.data.stars = 10
-        } else {
-            const offsetLevel = value - 2
-            const xpConstant = 1.042
-            player.data.stars = Math.round((((1 - Math.pow(xpConstant, offsetLevel)) / (1 - xpConstant)) * 20) + 10)
-        }
-
-        player.data.level = value
+        changeLevel(value, player)
         success(`You are now level ${value}.`)
     })
     hack("Uncap Level (Client-Side Only)", "Set's the level of your player. Can be above 100.", async (hack, player) => {
