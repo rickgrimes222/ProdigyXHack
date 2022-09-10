@@ -1,5 +1,6 @@
 import { h, render } from "preact"
 import HackMenu from "./components/HackMenu"
+import ChatMenu from "./components/ChatMenu"
 import { PRODIGY_X_CHEAT_MENU_ID } from "./constants"
 import { getPlayer, getWorld } from "./hack"
 import "tw-elements/dist/src/js/mdb/ripple.js"
@@ -11,9 +12,17 @@ document.querySelectorAll(`#${PRODIGY_X_CHEAT_MENU_ID}, #menu-toggler`).forEach(
     element.remove()
 })
 
+document.querySelectorAll(`#${PRODIGY_X_CHEAT_MENU_ID}-chat, #chat-mainframe`).forEach(element => {
+    element.remove()
+})
+
 export const menuElement = document.createElement("div")
 menuElement.id = PRODIGY_X_CHEAT_MENU_ID
 document.getElementById("game-wrapper")?.prepend(menuElement)
+
+export const chatElement = document.createElement("div")
+chatElement.id = `${PRODIGY_X_CHEAT_MENU_ID}-chat`
+document.getElementById("game-wrapper")?.prepend(chatElement)
 
 const googleAnalytics = document.createElement("script")
 googleAnalytics.src = "https://www.googletagmanager.com/gtag/js?id=G-Y90WPR2D4H"
@@ -51,6 +60,7 @@ const interval = setInterval(() => {
     try {
         if (process.env.EXTENSION ? _.player : getPlayer()) {
             render(<HackMenu hacks={hackRegistry} />, menuElement)
+            if (process.env.EXTENSION) render(<ChatMenu />, chatElement)
             clearInterval(interval)
         }
     } catch {}
