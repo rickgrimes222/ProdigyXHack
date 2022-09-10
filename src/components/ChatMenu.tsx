@@ -39,9 +39,9 @@ const ChatMenu: FunctionalComponent = () => {
                     {/* @ts-ignore */}
                     <p className="w-1/2 pr-3 text-right text-sm font-bold inline-block text-[#5fc4b9]"><GoPrimitiveDot className="inline-block" color="#5fc4b9" />{userCount} Online</p>
                 </div>
-                <div className="overflow-y-auto">
+                <div className="flex flex-col-reverse rounded overflow-y-scroll m-6 p-2 bg-gray-300 bg-opacity-90 w-2/2 h-3/4">
                     {messages.map((message, index) => {
-                        return <div key={index}>{message}</div>
+                        return <div className="shrink-0 grow-0" key={index}>Player Name: {message}</div>
                     })}
                 </div>
                 <form onSubmit={onSubmit}>
