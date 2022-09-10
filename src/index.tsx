@@ -1,6 +1,5 @@
 import { h, render } from "preact"
 import HackMenu from "./components/HackMenu"
-import ChatMenu from "./components/ChatMenu"
 import { PRODIGY_X_CHEAT_MENU_ID } from "./constants"
 import { getPlayer, getWorld } from "./hack"
 import "tw-elements/dist/src/js/mdb/ripple.js"
@@ -60,7 +59,10 @@ const interval = setInterval(() => {
     try {
         if (process.env.EXTENSION ? _.player : getPlayer()) {
             render(<HackMenu hacks={hackRegistry} />, menuElement)
-            if (process.env.EXTENSION) render(<ChatMenu />, chatElement)
+            if (process.env.EXTENSION) {
+                const ChatMenu = require("./components/ChatMenu").default
+                render(<ChatMenu />, chatElement)
+            }
             clearInterval(interval)
         }
     } catch {}

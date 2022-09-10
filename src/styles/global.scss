@@ -206,3 +206,12 @@
 * {
     user-select: auto !important;
 }
+
+#chat-mainframe {
+    scale: 0;
+    transition: scale 0.2s ease-in-out;
+}
+
+#chat-mainframe[data-visible="true"] {
+    scale: 1;
+}
