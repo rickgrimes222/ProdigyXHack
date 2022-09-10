@@ -54,13 +54,13 @@ const ChatMenu: FunctionalComponent = () => {
         <div>
             <div className="absolute rounded w-1/5 h-2/5 bottom-16 right-8 bg-gray-200 bg-opacity-90" id="chat-mainframe" data-visible={visible}>
                 <div>
-                    <p className="w-1/2 pl-3 text-lg font-bold inline-block">Prodigy X Chat</p>
+                    <p className="w-1/2 pl-3 mt-2 text-xl font-bold inline-block">Prodigy X Chat</p>
                     {/* @ts-ignore */}
-                    <p className="w-1/2 pr-3 text-right text-sm font-bold inline-block text-[#5fc4b9]"><GoPrimitiveDot className="inline-block" color="#5fc4b9" />{userCount} Online</p>
+                    <p className="w-1/2 pr-5 mt-2 text-right text-sm font-bold inline-block text-[#5fc4b9]"><GoPrimitiveDot className="inline-block" color="#5fc4b9" />{userCount} Online</p>
                 </div>
-                <div className="flex flex-col rounded overflow-y-scroll m-6 p-2 bg-gray-300 bg-opacity-90 w-2/2 h-3/4" ref={messageRef}>
+                <div className="flex flex-col overflow-y-auto overflow-x-visible no-scrollbar m-6 bg-opacity-90 w-2/2 h-3/4" ref={messageRef}>
                     {messages.map((message, index) => {
-                        return <div className="shrink-0 grow-0" key={index}>{message.name}: {message.message}</div>
+                        return <div className="rounded bg-gray-300 m-1 p-2" key={index}><a className="font-bold">{message.name}</a>: {message.message}</div>
                     })}
                 </div>
                 <form onSubmit={onSubmit}>
