@@ -12,7 +12,7 @@ const ChatMenu: FunctionalComponent = () => {
     const inputRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
-        const socket = io("http://localhost:7070")
+        const socket = io("https://prodigy-x-chat.herokuapp.com")
         setSocket(socket)
         socket.on("userCount", (count: number) => {
             setUserCount(count)
