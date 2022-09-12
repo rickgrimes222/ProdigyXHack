@@ -3,12 +3,13 @@ import { GoPrimitiveDot } from "react-icons/go"
 import { useEffect, useState, useRef } from "preact/hooks"
 import { io, Socket } from "socket.io-client"
 import MenuToggler from "./MenuToggler"
-import { getPlayer } from "../hack"
+import { getPlayer, launchCard } from "../hack"
 import { Player } from "../types/player"
 
 interface Message {
     message: string
     name: string
+    id: number
 }
 
 const ChatMenu: FunctionalComponent = () => {
@@ -44,7 +45,8 @@ const ChatMenu: FunctionalComponent = () => {
         if (input.value) {
             socket.emit("chat", {
                 message: input.value,
-                name: player.getName()
+                name: player.getName(),
+                id: player.userID
             })
             input.value = ""
         }
@@ -62,7 +64,7 @@ const ChatMenu: FunctionalComponent = () => {
                     {messages.map((message, index) => {
                         return (
                             <div className="rounded bg-gray-300 m-1 p-2" key={index}>
-                                <button className="font-bold text-sm">{message.name}</button>
+                                <button className="font-bold text-sm" onClick={() => launchCard(message.id)}>{message.name}</button>
                                 <p className="text-sm">{message.message}</p>
                             </div>
                         )
