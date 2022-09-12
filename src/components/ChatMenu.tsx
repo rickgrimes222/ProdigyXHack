@@ -60,7 +60,12 @@ const ChatMenu: FunctionalComponent = () => {
                 </div>
                 <div className="flex flex-col overflow-y-auto overflow-x-visible no-scrollbar m-6 bg-opacity-90 w-2/2 h-3/4" ref={messageRef}>
                     {messages.map((message, index) => {
-                        return <div className="rounded bg-gray-300 m-1 p-2" key={index}><a className="font-bold">{message.name}</a>: {message.message}</div>
+                        return (
+                            <div className="rounded bg-gray-300 m-1 p-2" key={index}>
+                                <button className="font-bold text-sm">{message.name}</button>
+                                <p className="text-sm">{message.message}</p>
+                            </div>
+                        )
                     })}
                 </div>
                 <form onSubmit={onSubmit}>
