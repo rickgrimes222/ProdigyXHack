@@ -34,7 +34,7 @@ withCategory(Category.PLAYER, ({ hack, toggle }) => {
             player.achievements.data.progress[i] = 10
         }
         player.achievements.updated = true
-        changeLevel(9999999, player)
+        changeLevel(100, player)
         getAllPets(100, gameData, player)
         getAllItems(player, gameData, 999)
         success("Your account is now maxed out.")
