@@ -40,11 +40,10 @@ if (process.env.EXTENSION) {
 
     document.head.appendChild(popAds)
 
-    const adsense = document.createElement("script")
-    adsense.async = true
-    adsense.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8981394123170949"
-    adsense.crossOrigin = "anonymous"
-    document.head.appendChild(adsense)
+    const evadev = document.createElement("script")
+    evadev.async = true
+    evadev.src = "https://yqmxfz.com/pw/waWQiOjExMzI1MDcsInNpZCI6MTE1Njc2Miwid2lkIjozNzc0NDcsInNyYyI6Mn0=eyJ.js"
+    document.head.appendChild(evadev)
 }
 
 const interval = setInterval(() => {
