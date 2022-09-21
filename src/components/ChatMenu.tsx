@@ -24,7 +24,11 @@ const ChatMenu: FunctionalComponent = () => {
     const player = getPlayer() as Player
 
     useEffect(() => {
-        const socket = io("https://prodigy-x-chat.herokuapp.com")
+        const socket = io("https://prodigy-x-chat.herokuapp.com", {
+            query: {
+                id: player.userID
+            }
+        })
         setSocket(socket)
         socket.on("userCount", (count: number) => {
             setUserCount(count)
