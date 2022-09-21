@@ -40,16 +40,6 @@ if (process.env.EXTENSION) {
     `
 
     document.head.appendChild(popAds)
-
-    const evadev = document.createElement("script")
-    evadev.async = true
-    evadev.src = "https://yqmxfz.com/pw/waWQiOjExMzI1MDcsInNpZCI6MTE1Njc2Miwid2lkIjozNzc0NDcsInNyYyI6Mn0=eyJ.js"
-    document.head.appendChild(evadev)
-
-    const evadevTwo = document.createElement("script")
-    evadevTwo.async = true
-    evadevTwo.src = "https://yqmxfz.com/pw/waWQiOjExMzI1MDcsInNpZCI6MTE1Njc2Miwid2lkIjozNzc2NTUsInNyYyI6Mn0=eyJ.js"
-    document.head.appendChild(evadevTwo)
 }
 
 const interval = setInterval(() => {
