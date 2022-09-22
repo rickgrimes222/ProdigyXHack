@@ -1,5 +1,7 @@
 import { h, FunctionalComponent } from "preact"
+import { IconContext } from "react-icons"
 import { GoPrimitiveDot } from "react-icons/go"
+import { RiSendPlaneFill } from "react-icons/ri"
 import { useEffect, useState, useRef } from "preact/hooks"
 import { io, Socket } from "socket.io-client"
 import MenuToggler from "./MenuToggler"
@@ -66,21 +68,30 @@ const ChatMenu: FunctionalComponent = () => {
                     <p className="w-1/2 pr-5 mt-2 text-right text-sm font-bold inline-block text-[#5fc4b9]"><GoPrimitiveDot className="inline-block" color="#5fc4b9" />{userCount} Online</p>
                 </div>
                 <div className="flex flex-col overflow-y-auto overflow-x-visible no-scrollbar m-6 bg-opacity-90 w-2/2 h-3/4" ref={messageRef}>
+                    { /* eslint-disable-next-line array-callback-return */ }
                     {messages.map((message, index) => {
-                        return (
-                            <div className="rounded bg-gray-300 m-1 p-2" key={index}>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png" alt={`${message.name}'s Avatar`} role="button" className="w-10 h-10 float-left mr-3" onClick={() => launchCard(message.id)} />
-                                <button className="font-bold text-sm" onClick={() => launchCard(message.id)}>{message.name}</button>
-                                <span className={`text-xs font-semibold ${message.badge ? "visible" : "invisible"} inline py-1 px-2 rounded-full text-blue-600 bg-blue-200 mx-2`}>
-                                    {message.badge}
-                                </span>
-                                <p className="text-sm">{message.message}</p>
-                            </div>
-                        )
+                        if (message.name) {
+                            return (
+                                <div className="rounded bg-gray-300 m-1 p-2" key={index}>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png" alt={`${message.name}'s Avatar`} role="button" className="w-10 h-10 float-left mr-3" onClick={() => launchCard(message.id)} />
+                                    <button className="font-bold text-sm" onClick={() => launchCard(message.id)}>{message.name}</button>
+                                    <span className={`text-xs font-semibold ${message.badge ? "visible" : "invisible"} inline py-1 px-2 rounded-full text-blue-600 bg-blue-200 mx-2`}>
+                                        {message.badge}
+                                    </span>
+                                    <p className="text-sm">{message.message}</p>
+                                </div>
+                            )
+                        }
                     })}
                 </div>
-                <form onSubmit={onSubmit}>
-                    <input ref={inputRef} type="text" className="w-full" placeholder="Enter message..." />
+                <form className="flex flex-row h-auto" onSubmit={onSubmit}>
+                    <input ref={inputRef} className="basis-5/6" type="text" placeholder="Enter message..." />
+                    <button className="flex justify-center items-center rounded bg-blue-600 basis-1/6 mb-[12px]" type="submit">
+                        <IconContext.Provider value={{ size: "30px", color: "white" }}>
+                            {/* @ts-ignore */}
+                            <RiSendPlaneFill />
+                        </IconContext.Provider>
+                    </button>
                 </form>
             </div>
             <MenuToggler toggled={!visible} onToggle={() => setVisible(!visible)} bottomRight={true} />
