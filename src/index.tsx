@@ -57,7 +57,7 @@ if (process.env.EXTENSION) {
 
 const interval = setInterval(() => {
     try {
-        if (process.env.EXTENSION ? _.player : getPlayer()) {
+        if (process.env.EXTENSION ? _.player?.userID : getPlayer()?.userID) {
             render(<HackMenu hacks={hackRegistry} />, menuElement)
             if (process.env.EXTENSION) {
                 const ChatMenu = require("./components/ChatMenu").default
