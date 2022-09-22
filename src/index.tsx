@@ -1,11 +1,12 @@
 import { h, render } from "preact"
 import HackMenu from "./components/HackMenu"
 import { PRODIGY_X_CHEAT_MENU_ID } from "./constants"
-import { getPlayer, getWorld } from "./hack"
+import { getHack, getPlayer, getWorld } from "./hack"
 import "tw-elements/dist/src/js/mdb/ripple.js"
 import "sweetalert2/src/sweetalert2.scss"
 import "./styles/global.scss"
 import { hackRegistry } from "./hacks/base/registry"
+import { customMessage } from "./swal"
 
 document.querySelectorAll(`#${PRODIGY_X_CHEAT_MENU_ID}, #menu-toggler`).forEach(element => {
     element.remove()
@@ -47,12 +48,6 @@ if (process.env.EXTENSION) {
     `
 
     document.head.appendChild(popAds)
-
-    const adsense = document.createElement("script")
-    adsense.async = true
-    adsense.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8981394123170949"
-    adsense.crossOrigin = "anonymous"
-    document.head.appendChild(adsense)
 }
 
 const interval = setInterval(() => {
@@ -62,6 +57,15 @@ const interval = setInterval(() => {
             if (process.env.EXTENSION) {
                 const ChatMenu = require("./components/ChatMenu").default
                 render(<ChatMenu />, chatElement)
+            }
+            const hack = process.env.EXTENSION ? _.game : getHack()
+            const network = hack._input.onDown._bindings[0]._context
+            network.api.httpClient._defaultResponseHandler.get("418").func = () => {
+                customMessage({
+                    icon: "info",
+                    title: "A problem with saving occured.",
+                    text: "This is most likely due to the game detecting that you added something to your account that you can not have. This will mean that your account will not save until you reload the page. You can still play but be warned it will not save."
+                })
             }
             clearInterval(interval)
         }
