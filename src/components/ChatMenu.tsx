@@ -38,11 +38,14 @@ const ChatMenu: FunctionalComponent = () => {
         socket.on("chat", (message: Message) => {
             setMessages(messages => [...messages, message])
         })
-    }, [])
+    }, [player.userID])
 
     useEffect(() => {
         if (messageRef.current) {
-            messageRef.current.scrollTop = messageRef.current.scrollHeight
+            messageRef.current.scrollTo({
+                behavior: "smooth",
+                top: messageRef.current.scrollHeight
+            })
         }
     }, [messages])
 
@@ -68,7 +71,7 @@ const ChatMenu: FunctionalComponent = () => {
                         {/* @ts-expect-error */}
                         <p className="w-1/2 pr-5 mt-2 text-right text-sm font-bold inline-block text-[#5fc4b9]"><GoPrimitiveDot className="inline-block" color="#5fc4b9" />{userCount} Online</p>
                     </div>
-                    <div className="flex flex-col overflow-y-visible overflow-x-visible my-6 bg-opacity-90 w-full" ref={messageRef}>
+                    <div className="flex flex-col overflow-y-auto my-6 bg-opacity-90 w-full max-h-[63vh]" ref={messageRef}>
                         { /* eslint-disable-next-line array-callback-return */ }
                         {messages.map((message, index) => {
                             if (message.name) {
