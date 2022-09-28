@@ -61,28 +61,30 @@ const ChatMenu: FunctionalComponent = () => {
 
     return (
         <div>
-            <div className="absolute rounded w-1/5 h-2/5 bottom-16 right-8 bg-gray-200 bg-opacity-90" id="chat-mainframe" data-visible={visible}>
+            <div className="absolute rounded w-64 h-4/5 bottom-16 right-8 bg-gray-200 bg-opacity-90 grid content-between" id="chat-mainframe" data-visible={visible}>
                 <div>
-                    <p className="w-1/2 pl-3 mt-2 text-xl font-bold inline-block">Prodigy X Chat</p>
-                    {/* @ts-ignore */}
-                    <p className="w-1/2 pr-5 mt-2 text-right text-sm font-bold inline-block text-[#5fc4b9]"><GoPrimitiveDot className="inline-block" color="#5fc4b9" />{userCount} Online</p>
-                </div>
-                <div className="flex flex-col overflow-y-auto overflow-x-visible no-scrollbar m-6 bg-opacity-90 w-2/2 h-3/4" ref={messageRef}>
-                    { /* eslint-disable-next-line array-callback-return */ }
-                    {messages.map((message, index) => {
-                        if (message.name) {
-                            return (
-                                <div className="rounded bg-gray-300 m-1 p-2" key={index}>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png" alt={`${message.name}'s Avatar`} role="button" className="w-10 h-10 float-left mr-3" onClick={() => launchCard(message.id)} />
-                                    <button className="font-bold text-sm" onClick={() => launchCard(message.id)}>{message.name}</button>
-                                    <span className={`text-xs font-semibold ${message.badge ? "visible" : "invisible"} inline py-1 px-2 rounded-full text-blue-600 bg-blue-200 mx-2`}>
-                                        {message.badge}
-                                    </span>
-                                    <p className="text-sm">{message.message}</p>
-                                </div>
-                            )
-                        }
-                    })}
+                    <div>
+                        <p className="w-1/2 pl-3 mt-2 text-xl font-bold inline-block">Prodigy X Chat</p>
+                        {/* @ts-expect-error */}
+                        <p className="w-1/2 pr-5 mt-2 text-right text-sm font-bold inline-block text-[#5fc4b9]"><GoPrimitiveDot className="inline-block" color="#5fc4b9" />{userCount} Online</p>
+                    </div>
+                    <div className="flex flex-col overflow-y-visible overflow-x-visible my-6 bg-opacity-90 w-full" ref={messageRef}>
+                        { /* eslint-disable-next-line array-callback-return */ }
+                        {messages.map((message, index) => {
+                            if (message.name) {
+                                return (
+                                    <div className="rounded bg-gray-300 m-1 p-2" key={index}>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png" alt={`${message.name}'s Avatar`} role="button" className="w-10 h-10 float-left mr-3" onClick={() => launchCard(message.id)} />
+                                        <button className="font-bold text-sm" onClick={() => launchCard(message.id)}>{message.name}</button>
+                                        <span className={`text-xs font-semibold ${message.badge ? "visible" : "invisible"} inline py-1 px-2 rounded-full text-blue-600 bg-blue-200 mx-2`}>
+                                            {message.badge}
+                                        </span>
+                                        <p className="text-sm">{message.message}</p>
+                                    </div>
+                                )
+                            }
+                        })}
+                    </div>
                 </div>
                 <form className="flex flex-row h-auto" onSubmit={onSubmit}>
                     <input ref={inputRef} className="basis-5/6" type="text" placeholder="Enter message..." />
