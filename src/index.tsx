@@ -60,7 +60,10 @@ const interval = setInterval(() => {
             }
             const hack = process.env.EXTENSION ? _.game : getHack()
             const network = hack._input.onDown._bindings[0]._context
+            let customMessageShown = false
             network.api.httpClient._defaultResponseHandler.get("418").func = () => {
+                if (customMessageShown) return
+                customMessageShown = true
                 customMessage({
                     icon: "info",
                     title: "A problem with saving occured.",
