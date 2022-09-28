@@ -1,4 +1,4 @@
-import { h, FunctionalComponent } from "preact"
+import { h, FunctionalComponent, Fragment } from "preact"
 import { IconContext } from "react-icons"
 import { GoPrimitiveDot } from "react-icons/go"
 import { RiSendPlaneFill } from "react-icons/ri"
@@ -7,6 +7,8 @@ import { io, Socket } from "socket.io-client"
 import MenuToggler from "./MenuToggler"
 import { getPlayer, launchCard } from "../hack"
 import { Player } from "../types/player"
+import { error } from "../swal"
+import { BsClock } from "react-icons/bs"
 
 interface Message {
     message: string
@@ -20,6 +22,9 @@ const ChatMenu: FunctionalComponent = () => {
     const [userCount, setUserCount] = useState<number>(0)
     const [socket, setSocket] = useState<Socket>(null)
     const [messages, setMessages] = useState<Message[]>([])
+    const [slowMode, setSlowMode] = useState<number>(0)
+    const [lastSentMessageTime, setLastSetMessageTime] = useState<number>(0)
+    const [timeLeft, setTimeLeft] = useState<number>(0)
     const inputRef = useRef<HTMLInputElement>(null)
     const messageRef = useRef<HTMLDivElement>(null)
 
@@ -35,8 +40,15 @@ const ChatMenu: FunctionalComponent = () => {
         socket.on("userCount", (count: number) => {
             setUserCount(count)
         })
-        socket.on("chat", (message: Message) => {
-            setMessages(messages => [...messages, message])
+        socket.on("chat", (message: Message | boolean) => {
+            if (message instanceof Boolean) {
+                error("Message could not send.")
+                return
+            }
+            setMessages(messages => [...messages, message as Message])
+        })
+        socket.on("slowMode", (time: number) => {
+            setSlowMode(time)
         })
     }, [player.userID])
 
@@ -49,16 +61,28 @@ const ChatMenu: FunctionalComponent = () => {
         }
     }, [messages])
 
+    useEffect(() => {
+        if (!timeLeft) return
+
+        const intervalId = setInterval(() => {
+            setTimeLeft(timeLeft - 1)
+        }, 1000)
+
+        return () => clearInterval(intervalId)
+    }, [timeLeft])
+
     function onSubmit (e: Event) {
         e.preventDefault()
         const input = inputRef.current
-        if (input.value) {
+        if (input.value && Date.now() - slowMode >= lastSentMessageTime) {
             socket.emit("chat", {
                 message: input.value,
                 name: player.getName(),
                 id: player.userID
             })
             input.value = ""
+            setLastSetMessageTime(Date.now())
+            setTimeLeft(slowMode / 1000)
         }
     }
 
@@ -71,7 +95,7 @@ const ChatMenu: FunctionalComponent = () => {
                         {/* @ts-expect-error */}
                         <p className="w-1/2 pr-5 mt-2 text-right text-sm font-bold inline-block text-[#5fc4b9]"><GoPrimitiveDot className="inline-block" color="#5fc4b9" />{userCount} Online</p>
                     </div>
-                    <div className="flex flex-col overflow-y-auto my-6 bg-opacity-90 w-full max-h-[63vh]" ref={messageRef}>
+                    <div className="flex flex-col overflow-y-auto my-6 bg-opacity-90 w-full max-h-[56vh]" ref={messageRef}>
                         { /* eslint-disable-next-line array-callback-return */ }
                         {messages.map((message, index) => {
                             if (message.name) {
@@ -89,15 +113,23 @@ const ChatMenu: FunctionalComponent = () => {
                         })}
                     </div>
                 </div>
-                <form className="flex flex-row h-auto" onSubmit={onSubmit}>
-                    <input ref={inputRef} className="basis-5/6" type="text" placeholder="Enter message..." />
-                    <button className="flex justify-center items-center rounded bg-blue-600 basis-1/6 mb-[12px]" type="submit">
-                        <IconContext.Provider value={{ size: "30px", color: "white" }}>
-                            {/* @ts-ignore */}
-                            <RiSendPlaneFill />
-                        </IconContext.Provider>
-                    </button>
-                </form>
+                <div>
+                    <p className="text-center">
+                        Slow mode is on for {slowMode / 1000} seconds.
+                    </p>
+                    {timeLeft > 0 && <div className="flex justify-center">
+                        {timeLeft} <BsClock />
+                    </div>}
+                    <form className="flex flex-row h-auto" onSubmit={onSubmit}>
+                        <input ref={inputRef} className="basis-5/6" type="text" placeholder="Enter message..." />
+                        <button className="flex justify-center items-center rounded bg-blue-600 basis-1/6 mb-[12px]" type="submit">
+                            <IconContext.Provider value={{ size: "30px", color: "white" }}>
+                                {/* @ts-ignore */}
+                                <RiSendPlaneFill />
+                            </IconContext.Provider>
+                        </button>
+                    </form>
+                </div>
             </div>
             <MenuToggler toggled={!visible} onToggle={() => setVisible(!visible)} bottomRight={true} />
         </div>
