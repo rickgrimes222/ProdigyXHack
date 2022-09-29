@@ -208,10 +208,9 @@
 }
 
 #chat-mainframe {
-    scale: 0;
-    transition: scale 0.2s ease-in-out;
+    display: none;
 }
 
 #chat-mainframe[data-visible="true"] {
-    scale: 1;
+    display: grid;
 }

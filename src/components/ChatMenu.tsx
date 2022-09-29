@@ -1,4 +1,4 @@
-import { h, FunctionalComponent, Fragment } from "preact"
+import { h, FunctionalComponent } from "preact"
 import { IconContext } from "react-icons"
 import { GoPrimitiveDot } from "react-icons/go"
 import { RiSendPlaneFill } from "react-icons/ri"
@@ -88,7 +88,7 @@ const ChatMenu: FunctionalComponent = () => {
 
     return (
         <div>
-            <div className="absolute rounded w-64 h-4/5 bottom-16 right-8 bg-gray-200 bg-opacity-90 grid content-between" id="chat-mainframe" data-visible={visible}>
+            <div className="absolute rounded w-64 h-4/5 bottom-16 right-8 bg-gray-200 bg-opacity-90 content-between" id="chat-mainframe" data-visible={visible}>
                 <div>
                     <div>
                         <p className="w-1/2 pl-3 mt-2 text-xl font-bold inline-block">Prodigy X Chat</p>
