@@ -8,7 +8,7 @@ import MenuToggler from "./MenuToggler"
 import { getPlayer, launchCard } from "../hack"
 import { Player } from "../types/player"
 import { error } from "../swal"
-import { BsClock } from "react-icons/bs"
+import { AiOutlineClockCircle } from "react-icons/ai"
 
 interface Message {
     message: string
@@ -88,7 +88,7 @@ const ChatMenu: FunctionalComponent = () => {
 
     return (
         <div>
-            <div className="absolute rounded w-70 h-4/5 bottom-16 right-8 bg-gray-200 bg-opacity-90 content-between" id="chat-mainframe" data-visible={visible}>
+            <div className="absolute rounded w-75 h-4/5 bottom-16 right-8 bg-gray-200 bg-opacity-90 content-between" id="chat-mainframe" data-visible={visible}>
                 <div>
                     <div>
                         <p className="w-1/2 pl-3 mt-2 text-xl font-bold inline-block">Prodigy X Chat</p>
@@ -118,7 +118,8 @@ const ChatMenu: FunctionalComponent = () => {
                         Slow mode is on for {slowMode / 1000} seconds.
                     </p>
                     {timeLeft > 0 && <div className="flex justify-center">
-                        {timeLeft} <BsClock />
+                        {/* @ts-expect-error */}
+                        <p className="text-right text-base inline-block">{timeLeft} {"  "} <AiOutlineClockCircle className="inline-block" /></p>
                     </div>}
                     <form className="flex flex-row h-auto" onSubmit={onSubmit}>
                         <input ref={inputRef} className="basis-5/6" type="text" placeholder="Enter message..." />
