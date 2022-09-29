@@ -88,7 +88,7 @@ const ChatMenu: FunctionalComponent = () => {
 
     return (
         <div>
-            <div className="absolute rounded w-64 h-4/5 bottom-16 right-8 bg-gray-200 bg-opacity-90 content-between" id="chat-mainframe" data-visible={visible}>
+            <div className="absolute rounded w-70 h-4/5 bottom-16 right-8 bg-gray-200 bg-opacity-90 content-between" id="chat-mainframe" data-visible={visible}>
                 <div>
                     <div>
                         <p className="w-1/2 pl-3 mt-2 text-xl font-bold inline-block">Prodigy X Chat</p>
@@ -101,7 +101,7 @@ const ChatMenu: FunctionalComponent = () => {
                             if (message.name) {
                                 return (
                                     <div className="rounded bg-gray-300 m-1 p-2" key={index}>
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png" alt={`${message.name}'s Avatar`} role="button" className="w-10 h-10 float-left mr-3" onClick={() => launchCard(message.id)} />
+                                        { /* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png" alt={`${message.name}'s Avatar`} role="button" className="w-10 h-10 float-left mr-3" onClick={() => launchCard(message.id)} /> */ }
                                         <button className="font-bold text-sm" onClick={() => launchCard(message.id)}>{message.name}</button>
                                         <span className={`text-xs font-semibold ${message.badge ? "visible" : "invisible"} inline py-1 px-2 rounded-full text-blue-600 bg-blue-200 mx-2`}>
                                             {message.badge}
