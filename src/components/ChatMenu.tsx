@@ -74,7 +74,7 @@ const ChatMenu: FunctionalComponent = () => {
     function onSubmit (e: Event) {
         e.preventDefault()
         const input = inputRef.current
-        if (input.value && Date.now() - slowMode >= lastSentMessageTime) {
+        if (input.value && Date.now() - slowMode >= lastSentMessageTime && input.value.length <= 25) {
             socket.emit("chat", {
                 message: input.value,
                 name: player.getName(),
