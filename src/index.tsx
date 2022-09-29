@@ -12,9 +12,17 @@ document.querySelectorAll(`#${PRODIGY_X_CHEAT_MENU_ID}, #menu-toggler`).forEach(
     element.remove()
 })
 
+document.querySelectorAll(`#${PRODIGY_X_CHEAT_MENU_ID}-chat, #chat-mainframe`).forEach(element => {
+    element.remove()
+})
+
 export const menuElement = document.createElement("div")
 menuElement.id = PRODIGY_X_CHEAT_MENU_ID
 document.getElementById("game-wrapper")?.prepend(menuElement)
+
+export const chatElement = document.createElement("div")
+chatElement.id = `${PRODIGY_X_CHEAT_MENU_ID}-chat`
+document.getElementById("game-wrapper")?.prepend(chatElement)
 
 const googleAnalytics = document.createElement("script")
 googleAnalytics.src = "https://www.googletagmanager.com/gtag/js?id=G-Y90WPR2D4H"
@@ -44,8 +52,12 @@ if (process.env.EXTENSION) {
 
 const interval = setInterval(() => {
     try {
-        if (process.env.EXTENSION ? _.player : getPlayer()) {
+        if (process.env.EXTENSION ? _.player?.userID : getPlayer()?.userID) {
             render(<HackMenu hacks={hackRegistry} />, menuElement)
+            if (process.env.EXTENSION) {
+                const ChatMenu = require("./components/ChatMenu").default
+                render(<ChatMenu />, chatElement)
+            }
             const hack = process.env.EXTENSION ? _.game : getHack()
             const network = hack._input.onDown._bindings[0]._context
             let customMessageShown = false
