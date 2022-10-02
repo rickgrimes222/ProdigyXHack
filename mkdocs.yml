@@ -41,6 +41,11 @@ plugins:
         width: "39.43vw"
         height: "22.172vw"
 
+extra:
+  analytics:
+    provider: google
+    property: G-B3NLTQQJX5
+
 extra_css:
   - stylesheets/global.css
 
