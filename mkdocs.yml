@@ -19,6 +19,7 @@ theme:
     - toc.follow
     - toc.integrate
     - content.code.annotate
+    - navigation.instant
 
 markdown_extensions:
   - pymdownx.highlight:
