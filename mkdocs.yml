@@ -1,4 +1,5 @@
 site_name: Prodigy X
+site_url: https://prodigyx.org
 
 theme:
   name: material
