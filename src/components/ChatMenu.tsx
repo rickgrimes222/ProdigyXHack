@@ -74,7 +74,7 @@ const ChatMenu: FunctionalComponent = () => {
     function onSubmit (e: Event) {
         e.preventDefault()
         const input = inputRef.current
-        if (input.value && Date.now() - slowMode >= lastSentMessageTime && input.value.length <= 25) {
+        if (input.value && Date.now() - slowMode >= lastSentMessageTime && input.value.length <= 300) {
             socket.emit("chat", {
                 message: input.value,
                 name: player.getName(),
@@ -88,7 +88,7 @@ const ChatMenu: FunctionalComponent = () => {
 
     return (
         <div>
-            <div className="absolute rounded w-75 h-4/5 bottom-16 right-8 bg-gray-200 bg-opacity-90 content-between" id="chat-mainframe" data-visible={visible}>
+            <div className="absolute rounded w-72 h-4/5 bottom-16 right-8 bg-gray-200 bg-opacity-90 content-between" id="chat-mainframe" data-visible={visible}>
                 <div>
                     <div>
                         <p className="w-1/2 pl-3 mt-2 text-xl font-bold inline-block">Prodigy X Chat</p>
