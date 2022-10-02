@@ -1,3 +1,8 @@
+---
+title: Prodigy X Home
+description: Prodigy X is the ultimate cheat menu for Prodigy. It has many features and works on all platforms.
+---
+
 <center>
 
 # Prodigy X

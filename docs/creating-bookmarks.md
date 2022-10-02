@@ -1,3 +1,8 @@
+---
+title: Creating Bookmarks
+description: Learn how to create a bookmark, which will help you install the Prodigy X cheat menu.
+---
+
 # Creating Bookmarks
 
 To use Prodigy X, you must create a bookmark.

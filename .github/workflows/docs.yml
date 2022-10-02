@@ -7,6 +7,7 @@ on:
     paths:
       - docs/**
       - mkdocs.yml
+      - overrides/**
 
 jobs:
   deploy:
@@ -17,7 +18,8 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
-      - run: pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git mkdocs-video
+      - run: sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
+      - run: pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git mkdocs-video pillow cairosvg
       - run: mkdocs gh-deploy --force
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }} 

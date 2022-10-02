@@ -1,6 +1,11 @@
+---
+title: Prodigy X Installation
+description: Learn how to install the best Prodigy hack out there - Prodigy X!
+---
+
 # Installing Prodigy X
 
-There are 2 different methods of installing Prodigy X.
+There are 3 different methods of installing Prodigy X.
 
 ## Extension Method Webstore (only works on Chrome, but easier)
 
