@@ -89,7 +89,7 @@ const ChatMenu: FunctionalComponent = () => {
     return (
         <div>
             <div className="absolute rounded w-72 h-4/5 bottom-16 right-8 bg-gray-200 bg-opacity-90 content-between" id="chat-mainframe" data-visible={visible}>
-                <div className="h-[inherit]">
+                <div className="w-[inherit]">
                     <div>
                         <p className="w-1/2 pl-3 mt-2 text-xl font-bold inline-block">Prodigy X Chat</p>
                         {/* @ts-expect-error */}
@@ -113,7 +113,7 @@ const ChatMenu: FunctionalComponent = () => {
                         })}
                     </div>
                 </div>
-                <div className="h-[inherit]">
+                <div className="w-[inherit]">
                     <p className="text-center">
                         Slow mode is on for {slowMode / 1000} seconds.
                     </p>
