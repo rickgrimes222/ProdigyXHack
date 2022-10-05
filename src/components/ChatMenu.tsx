@@ -95,7 +95,7 @@ const ChatMenu: FunctionalComponent = () => {
                         {/* @ts-expect-error */}
                         <p className="w-1/2 pr-5 mt-2 text-right text-sm font-bold inline-block text-[#5fc4b9]"><GoPrimitiveDot className="inline-block" color="#5fc4b9" />{userCount} Online</p>
                     </div>
-                    <div className="flex flex-col overflow-y-auto my-6 bg-opacity-90 w-full max-h-[56vh]" ref={messageRef}>
+                    <div className="flex flex-col overflow-y-auto no-scrollbar my-6 bg-opacity-90 w-full max-h-[56vh]" ref={messageRef}>
                         { /* eslint-disable-next-line array-callback-return */ }
                         {messages.map((message, index) => {
                             if (message.name) {
@@ -106,7 +106,7 @@ const ChatMenu: FunctionalComponent = () => {
                                         <span className={`text-xs font-semibold ${message.badge ? "visible" : "invisible"} inline py-1 px-2 rounded-full text-blue-600 bg-blue-200 mx-2`}>
                                             {message.badge}
                                         </span>
-                                        <p className="text-sm">{message.message}</p>
+                                        <p className="text-sm text-ellipsis overflow-hidden">{message.message}</p>
                                     </div>
                                 )
                             }
