@@ -8,7 +8,7 @@
 	<strong>
 		<a href="https://prodigyapi.github.io/ProdigyX/">Website</a>
 		•
-		<a href="https://discord.com/invite/YRtwBJrmGa">Discord Server</a>
+		<a href="https://discord.gg/D2jUxNr39K">Discord Server</a>
         •
         <a href="https://prodigyapi.github.io/ProdigyX/installing/">Installation Guide</a>
         •
@@ -22,7 +22,7 @@
     <a>
 	    <img alt="Visitors" src="https://visitor-badge.glitch.me/badge?page_id=ProdigyAPI.ProdigyX">
     </a>
-    <a href="https://discord.com/invite/YRtwBJrmGa">
+    <a href="https://discord.gg/D2jUxNr39K">
 	    <img alt="Discord Members" src="https://img.shields.io/discord/957314086037782638.svg?color=7289da&label=Discord&logo=discord&style=flat-square">
     </a>
     <a href="../../pulse">

@@ -26,7 +26,7 @@ const HackMenu: FunctionalComponent<HackMenuProps> = ({ hacks = [] }) => {
                         <a href="https://prodigyapi.github.io/ProdigyX/" target="_blank" rel="noreferrer">
                             <BsGlobe color="#87CEEB" />
                         </a>
-                        <a href="https://discord.gg/YRtwBJrmGa" target="_blank" rel="noreferrer">
+                        <a href="https://discord.gg/D2jUxNr39K" target="_blank" rel="noreferrer">
                             <BsDiscord color="#5865F2" />
                         </a>
                         <a href="https://www.youtube.com/channel/UCioIJQ4niel1ziD7YA5b3cA" target="_blank" rel="noreferrer">
@@ -37,7 +37,7 @@ const HackMenu: FunctionalComponent<HackMenuProps> = ({ hacks = [] }) => {
                         </a>
                     </IconContext.Provider>
                 </div>
-                <p className="text-base font-bold text-center mt-3">Join our discord for hack updates &#38; support: <a href="https://discord.gg/YRtwBJrmGa" target="_blank" rel="noreferrer" className="underline decoration-blue-600">discord.gg/YRtwBJrmGa</a></p>
+                <p className="text-base font-bold text-center mt-3">Join our discord for hack updates &#38; support: <a href="https://discord.gg/D2jUxNr39K" target="_blank" rel="noreferrer" className="underline decoration-blue-600">discord.gg/YRtwBJrmGa</a></p>
                 {sortGroups(groupBy(hacks, hack => hack.category)).map(([category, hacks]) => (
                     <Fragment key={category}>
                         <h2 className="text-center text-3xl font-bold my-2 md:text-left ">{category}</h2>

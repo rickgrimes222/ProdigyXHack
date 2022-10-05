@@ -13,9 +13,9 @@ Prodigy X is a cheat menu for the game [Prodigy](https://www.prodigygame.com/mai
 
 To use Prodigy X, go to our [installing page](installing.md).
 
-For more help visit our [discord server](https://discord.gg/YRtwBJrmGa).
+For more help visit our [discord server](https://discord.gg/D2jUxNr39K).
 </center>
 
 !!! tip "Always use an alt, just to be safe."
     While our hacks are completely safe, **you should never use hacks on your main account.**
-    There's an **extremely slim** chance that you could get banned for using hacks. If you do get banned, please [report it](https://discord.gg/YRtwBJrmGa).
+    There's an **extremely slim** chance that you could get banned for using hacks. If you do get banned, please [report it](https://discord.gg/D2jUxNr39K).
