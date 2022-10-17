@@ -2,8 +2,8 @@ import { success, error, InputTypes } from "../swal"
 import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
 
-withCategory(Category.MINIGAME, ({ hack, toggle }) => {
-    hack("Edit Dino Dig Walkspeed", "Edit the walkspeed of your player in dino dig.", async (hack, player) => {
+withCategory(Category.MINIGAME, ({ hack }) => {
+    hack("Edit Dino Dig Walkspeed", "Edit the walkspeed of your player in dino dig.", async (hack) => {
         const value = await InputTypes.integer("Please enter the walkspeed you want your character to be at. The default is 1.5", 1, 100)
         hack._state.states.get("DinoDig").walkSpeed = value
         success(`You are now at a walkspeed of ${value}.`)
