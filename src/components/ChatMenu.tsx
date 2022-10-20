@@ -114,9 +114,10 @@ const ChatMenu: FunctionalComponent = () => {
                     </div>
                 </div>
                 <div className="w-[inherit]">
-                    <p className="text-center">
+                    {timeLeft === 0 && <p className="text-center">
                         Slow mode is on for {slowMode / 1000} seconds.
                     </p>
+                    }
                     {timeLeft > 0 && <div className="flex justify-center">
                         {/* @ts-expect-error */}
                         <p className="text-right text-base inline-block">{timeLeft} {"  "} <AiOutlineClockCircle className="inline-block" /></p>
