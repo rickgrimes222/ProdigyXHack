@@ -9,6 +9,19 @@ To use Prodigy X, you must create a bookmark.
 
 If you don't know how to create a bookmark, this page will teach you how to.
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8981394123170949"
+     crossorigin="anonymous"></script>
+<!-- Ad Unit 1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8981394123170949"
+     data-ad-slot="1878857878"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ## Firefox
 
 1. To create a bookmark on firefox you need to open the bookmarks bar. You can do this by pressing ++ctrl+b++.
@@ -23,6 +36,19 @@ If you don't know how to create a bookmark, this page will teach you how to.
    ![Example Image](images/firefox-add-bookmark.jpg)
    </center>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8981394123170949"
+     crossorigin="anonymous"></script>
+<!-- Ad Unit 1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8981394123170949"
+     data-ad-slot="1878857878"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ## Chrome
 
 1. Make the bookmark bar visible. If it is not visible you can make it visible by press ++ctrl+shift+b++.
@@ -36,3 +62,16 @@ If you don't know how to create a bookmark, this page will teach you how to.
    <center>
    ![Example Image](images/chrome-add-bookmark.jpg)
    </center>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8981394123170949"
+     crossorigin="anonymous"></script>
+<!-- Ad Unit 1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8981394123170949"
+     data-ad-slot="1878857878"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>

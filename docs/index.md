@@ -19,3 +19,16 @@ For more help visit our [discord server](https://discord.gg/D2jUxNr39K).
 !!! tip "Always use an alt, just to be safe."
     While our hacks are completely safe, **you should never use hacks on your main account.**
     There's an **extremely slim** chance that you could get banned for using hacks. If you do get banned, please [report it](https://discord.gg/D2jUxNr39K).
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8981394123170949"
+     crossorigin="anonymous"></script>
+<!-- Ad Unit 1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8981394123170949"
+     data-ad-slot="1878857878"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
