@@ -5,7 +5,35 @@ description: Learn how to install the best Prodigy hack out there - Prodigy X!
 
 # Installing Prodigy X
 
-There is only one method for installing Prodigy X.
+There are 2 method's for installing Prodigy X.
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8981394123170949"
+     crossorigin="anonymous"></script>
+<!-- Ad Unit 1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8981394123170949"
+     data-ad-slot="1878857878"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+## Extension Method (only works on Chrome, but easier and recommended)
+
+The extension method is the easiest way to install Prodigy X.
+
+1. Firstly you have to get on the extensions page. You can access this page by going to chrome://extensions/ in chrome.
+2. Now on the extensions page, you will have to enable Developer Mode. On the top right corner of the page, you will see a switch. Make sure it is enabled.
+   ![Example](images/developer%20mode%20chrome.jpg)
+3. Now download the extension. You can do that [here](https://github.com/ProdigyAPI/ProdigyXLoaderZIP/raw/main/build.zip).
+4. The only thing you have to do now is to install the extension. You can do that by dragging and dropping the extension onto the extensions page.
+
+Now when you log onto Prodigy, Prodigy X will automatically get loaded!
+
+Here's a video to show you how to do it!
+![type:video](https://www.youtube.com/embed/zbZc-TPtFJQ)
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8981394123170949"
      crossorigin="anonymous"></script>
