@@ -16,8 +16,8 @@
 	</strong>
     <br />
     <br />
-    <a href="https://chrome.google.com/webstore/detail/prodigy-x-loader/eajlgdnpohfeclpikjpnhadfkboknaop">
-	    <img alt="Extension Downloads" src="https://img.shields.io/chrome-web-store/users/eajlgdnpohfeclpikjpnhadfkboknaop?color=green&label=Extension%20Downloads">
+    <a href="https://chrome.google.com/webstore/detail/prodigy-x-loader/cddgplffojbmjffebkmngmmlhkkhfibp">
+	    <img alt="Extension Downloads" src="https://img.shields.io/chrome-web-store/users/cddgplffojbmjffebkmngmmlhkkhfibp?color=green&label=Extension%20Downloads">
     </a>
     <a>
 	    <img alt="Visitors" src="https://visitor-badge.glitch.me/badge?page_id=ProdigyAPI.ProdigyX">
