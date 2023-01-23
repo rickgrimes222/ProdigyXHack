@@ -6,11 +6,11 @@
 <br />
 <p align="center">
 	<strong>
-		<a href="https://prodigyapi.github.io/ProdigyX/">Website</a>
+		<a href="https://www.prodigyx.org/">Website</a>
 		•
 		<a href="https://discord.gg/D2jUxNr39K">Discord Server</a>
         •
-        <a href="https://prodigyapi.github.io/ProdigyX/installing/">Installation Guide</a>
+        <a href="https://www.prodigyx.org/installing/">Installation Guide</a>
         •
         <a href="https://www.youtube.com/channel/UCioIJQ4niel1ziD7YA5b3cA">YouTube</a>
 	</strong>
@@ -30,7 +30,7 @@
     </a>
 </p>
 
-For usage/installation, visit our documentation [here](https://ProdigyAPI.github.io/ProdigyX/).
+For usage/installation, visit our documentation [here](https://www.prodigyx.org/).
 <p align="center">
     <img alt="Prodigy X Menu" src="https://user-images.githubusercontent.com/63412264/188280311-13f2be0e-3afe-44ed-add7-9d1086e36a6e.png">
 </p>
