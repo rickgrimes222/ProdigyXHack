@@ -60,7 +60,7 @@ withCategory(Category.BATTLE, ({ hack, toggle }) => {
         state.teams[0].setEnergy(99)
         success("Your battle energy has been filled.")
     })
-    hack("Heal Team", "Heal's your team", async (hack, player) => {
+    hack("Heal Team", "Heals your team", async (hack, player) => {
         const currentState = hack.state.current
         if (["Battle", "SecureBattle"].includes(currentState)) {
             player.heal()
