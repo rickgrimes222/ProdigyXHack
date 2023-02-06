@@ -4,7 +4,7 @@ import { Category } from "./base/categories"
 import { withCategory } from "./base/registry"
 
 withCategory(Category.BATTLE, ({ hack, toggle }) => {
-    hack("PVP Health", "Set's the amount of health you have currently.", async (hack, player) => {
+    hack("PVP Health", "Sets the amount of health you have currently.", async (hack, player) => {
         player.pvpHP = 1e9
         player.getMaxHearts = () => 1e9
         success("You now have unlimited health.")
