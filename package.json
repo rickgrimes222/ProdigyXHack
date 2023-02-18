@@ -15,7 +15,7 @@
     ],
     "license": "MIT",
     "dependencies": {
-        "preact": "^10.11.1",
+        "preact": "^10.12.1",
         "react-icons": "^4.4.0",
         "socket.io-client": "^4.5.2",
         "tw-elements": "^1.0.0-alpha12"
