@@ -34,6 +34,10 @@ withCategory(Category.BATTLE, ({ hack, toggle }) => {
     })
     hack("Win Battle [PvE]", "Win a battle in PvE", async (hack) => {
         const currentState = hack.state.current
+        if (currentState === "SecureBattleRevamp") {
+            error("This hack is not available in the new Battle Update.")
+            return
+        }
         switch (currentState) {
         case "PvP":
         case "CoOp":
