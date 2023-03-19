@@ -25,7 +25,7 @@ document.getElementById("game-wrapper")?.prepend(menuElement)
 // document.getElementById("game-wrapper")?.prepend(chatElement)
 
 const googleAnalytics = document.createElement("script")
-googleAnalytics.src = "https://www.googletagmanager.com/gtag/js?id=G-Y90WPR2D4H"
+googleAnalytics.src = "https://www.googletagmanager.com/gtag/js?id=G-SENY5K9EWR"
 document.head.appendChild(googleAnalytics)
 
 const googleAnalyticsScript = document.createElement("script")
@@ -33,7 +33,7 @@ googleAnalyticsScript.innerHTML = `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 
-gtag('config', 'G-Y90WPR2D4H');
+gtag('config', 'G-SENY5K9EWR');
 gtag('event', ${process.env.EXTENSION ? "\"uses_extension\"" : "\"extension_less\""});
 `
 
