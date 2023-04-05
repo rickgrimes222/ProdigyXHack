@@ -8,13 +8,13 @@ import "./styles/global.scss"
 import { hackRegistry } from "./hacks/base/registry"
 import { customMessage } from "./swal"
 
-// document.querySelectorAll(`#${PRODIGY_X_CHEAT_MENU_ID}, #menu-toggler`).forEach(element => {
-//     element.remove()
-// })
-
-document.querySelectorAll(`#${PRODIGY_X_CHEAT_MENU_ID}-chat, #chat-mainframe`).forEach(element => {
+document.querySelectorAll(`#${PRODIGY_X_CHEAT_MENU_ID}, #menu-toggler`).forEach(element => {
     element.remove()
 })
+
+// document.querySelectorAll(`#${PRODIGY_X_CHEAT_MENU_ID}-chat, #chat-mainframe`).forEach(element => {
+//     element.remove()
+// })
 
 export const menuElement = document.createElement("div")
 menuElement.id = PRODIGY_X_CHEAT_MENU_ID
