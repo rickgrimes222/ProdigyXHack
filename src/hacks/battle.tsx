@@ -25,6 +25,8 @@ withCategory(Category.BATTLE, ({ hack, toggle }) => {
                 getWorld().$(player.data.zone)
             }
             success("You have successfully escaped from the battle.")
+        } else if (currentState === "SecureBattleRevamp") {
+            Object.fromEntries(hack.state.states)[currentState].exitBattle()
         } else if (!["Battle", "SecureBattle"].includes(currentState)) {
             error("You are currently not in a battle.")
         } else {
