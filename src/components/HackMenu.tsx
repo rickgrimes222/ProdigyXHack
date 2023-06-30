@@ -38,11 +38,11 @@ const HackMenu: FunctionalComponent<HackMenuProps> = ({ hacks = [] }) => {
                     </IconContext.Provider>
                 </div>
                 <p className="text-base font-bold text-center mt-3">Join our discord for hack updates &#38; support: <a href="https://discord.gg/D2jUxNr39K" target="_blank" rel="noreferrer" className="underline decoration-blue-600">discord.gg/YRtwBJrmGa</a></p>
-                <div class="flex justify-center mt-3">
+                {/* <div class="flex justify-center mt-3">
                     <a href="https://www.usechatgpt.ai/install?ref=prodigyhacking" target="_blank" rel="noreferrer">
                         <img src="https://raw.githubusercontent.com/ProdigyAPI/ProdigyXHack/master/docs/images/usechatgpt.png" alt="UseChatGPT.ai" class="w-72 h-28 rounded-md" />
                     </a>
-                </div>
+                </div> */}
                 {sortGroups(groupBy(hacks, hack => hack.category)).map(([category, hacks]) => (
                     <Fragment key={category}>
                         <h2 className="text-center text-3xl font-bold my-2 md:text-left ">{category}</h2>
