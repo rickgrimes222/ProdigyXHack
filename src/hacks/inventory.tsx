@@ -83,6 +83,20 @@ withCategory(Category.INVENTORY, ({ hack }) => {
         }
         success(`You now have ${amount} of ${itemData.data.name}.`)
     })
+    hack("Delete Item", "Precisely delete an item from your inventory.", async (hack, player, gameData) => {
+        const itemCategory = await InputTypes.select("Please select the category of items you want to remove.", names)
+        const itemCategoryId = ids[itemCategory]
+        const itemCategoryOptions = gameData[itemCategoryId].filter(e => player.backpack.data[itemCategoryId].some(f => e.ID === f.ID))
+        const item = await InputTypes.select("Please select the item you want to remove.", itemCategoryOptions.map(e => e.data.name).sort((a, b) => a.localeCompare(b)))
+        const itemData = itemCategoryOptions.sort((a, b) => a.data.name.localeCompare(b.data.name))[item]
+        const amount = await InputTypes.integer(`Please enter the amount of ${itemCategoryOptions[item].data.name} you want to delete.`, 0, 9999)
+        const indexOfItem = player.backpack.data[itemCategoryId].findIndex(i => i.ID === itemData.ID)
+        if (amount >= player.backpack.data[itemCategoryId][indexOfItem].N) {
+            player.backpack.data[itemCategoryId].splice(indexOfItem, 1)
+        } else {
+            player.backpack.data[itemCategoryId][indexOfItem].N -= amount
+        }
+    })
     hack("Obtain All Furniture", "Get's a certain amount of every furniture item.", async (hack, player, gameData) => {
         const value = await InputTypes.integer("Please enter the amount of every furniture item you want to get.", 0, 9999)
         gameData.dorm.forEach(x => {
